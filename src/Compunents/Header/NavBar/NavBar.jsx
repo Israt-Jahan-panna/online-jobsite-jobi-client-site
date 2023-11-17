@@ -1,229 +1,413 @@
-import React from "react";
+// import { Link, NavLink } from "react-router-dom";
 
-const NavBar = () => {
-  return (
-    <div className="font-EBGaramond">
-      <nav className="relative px-4 py-4 flex justify-between items-center bg white shadow-md">
-        <img src="https://i.ibb.co/bJVcjyN/icon.png" alt="" />
-        <a className="text-3xl font-bold leading-none" href="">
-          JOBI
-        </a>
-        <div className="lg:hidden">
-          <button className="navbar-burger flex items-center text-blue-600 p-3">
-            <svg
-              className="block h-4 w-4 fill-current"
-              viewBox="0 0 20 20"
-              xmlns=""
-            >
-              <title>Mobile menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-            </svg>
-			
-			
-          </button>
-        </div>
-        <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
-          <li>
-            <a className="text-sm text-black hover:text-gray-500" href="#">
-              Home
-            </a>
-          </li>
-          <li className="text-gray-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              className="w-4 h-4 current-fill"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                stroke
-                width="2"
-                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-              />
-            </svg>
-          </li>
-         
-          <li>
-            <a className="text-sm text-black hover:text-gray-500" href="#">
-             Add job
-            </a>
-          </li>
-          <li className="text-gray-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              className="w-4 h-4 current-fill"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                stroke
-                width="2"
-                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-              />
-            </svg>
-          </li>
-          <li>
-            <a className="text-sm text-black hover:text-gray-500" href="#">
-              My posted jobs
-            </a>
-          </li>
-          <li className="text-gray-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              className="w-4 h-4 current-fill"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                stroke
-                width="2"
-                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-              />
-            </svg>
-          </li>
-          <li>
-            <a className="text-sm text-black hover:text-gray-500" href="#">
-			My Bids
-            </a>
-          </li>
-          <li className="text-gray-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              className="w-4 h-4 current-fill"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                stroke
-                width="2"
-                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-              />
-            </svg>
-          </li>
-          <li>
-            <a className="text-sm text-black hover:text-gray-500" href="#">
-			Bid Requests
-            </a>
-          </li>
-        </ul>
-        <a
-          className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-[#198754]  hover:bg-gray-100 text-sm text-white font-bold  rounded-xl transition duration-200"
-          href="#"
-        >
-          Registration
-        </a>
-        <a
-          className="hidden lg:inline-block py-2 px-6 bg-[#198754] hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-          href="#"
-        >
-          Sign up
-        </a>
-      </nav>
-      <div className="navbar-menu relative z-50 hidden">
-        <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-        <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max w-sm py-6 px-6 bg white border-r overflow-y-auto">
-          <div className="flex items-center mb-8">
-            <a className="mr-auto text-3xl font-bold leading-none" href="#">
-              <svg className="h-12" alt="logo" viewBox="0 0 10240 10240">
-                <path xmlns="http://www.w3.org/2000/svg"></path>
-              </svg>
-            </a>
-            <button className="navbar-close">
-              <svg
-                className="h-6 w-6 text-black cursor-pointer hover:text-gray-500"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                ></path>
-              </svg>
-            </button>
-          </div>
-          <div>
-            <ul>
-              <li className="mb-1">
-                <a
-                  className="block p-4 text-sm font-semibold text-black hover:bg-blue-50 hover:text-blue-600 rounded"
-                  href="#"
-                >
-                  Home
-                </a>
-              </li>
-              <li className="mb-1">
-                <a
-                  className="block p-4 text-sm font-semibold text-black hover:bg-blue-50 hover:text-blue-600 rounded"
-                  href="#"
-                >
-                  About Us
-                </a>
-              </li>
-              <li className="mb-1">
-                <a
-                  className="block p-4 text-sm font-semibold text-black hover:bg-blue-50 hover:text-blue-600 rounded"
-                  href="#"
-                >
-                  Services
-                </a>
-              </li>
-              <li className="mb-1">
-                <a
-                  className="block p-4 text-sm font-semibold text-black hover:bg-blue-50 hover:text-blue-600 rounded"
-                  href="#"
-                >
-                  Pricing
-                </a>
-              </li>
-              <li className="mb-1">
-                <a
-                  className="block p-4 text-sm font-semibold text-black hover:bg-blue-50 hover:text-blue-600 rounded"
-                  href="#"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="mt-auto">
-            <div className="pt-6">
-              <a
-                className="block px-4 py-3 mb-3  text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
-                href="#"
-              >
-                Sign in
-              </a>
-              <a
-                className="block px-4 py-3 mb-2 text-xs text-center text white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl"
-                href="#"
-              >
-                Sign Up
-              </a>
-            </div>
-            <p className="my-4 text-xs text-center text-black">
-              <span>Copyright © 2021</span>
-            </p>
-          </div>
-        </nav>
-      </div>
-    </div>
-  );
-};
+// import { useContext, useState } from "react";
+// import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
-export default NavBar;
+// const NavBar = () => {
+//   const { user, logOut } = useContext(AuthContext);
+//   const handelSingOut = () => {
+//     logOut();
+//   };
+
+//   const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+//   // Function to toggle the dropdown
+//   const toggleDropdown = () => {
+//     setDropdownOpen(!isDropdownOpen);
+//   };
+//   return (
+//     <div className="max-w-[1600px] mx-auto">
+//       <div className=" navbar px-4 py-2 bg-white shadow-md">
+//         <div className="flex items-center">
+//           <img src="https://i.ibb.co/bJVcjyN/icon.png" alt="" />
+//           <a className="text-3xl font-bold leading-none" href="">
+//             JOBI
+//           </a>
+//         </div>
+//         <div className="navbar-start">
+//           <div className="dropdown ">
+//             <label tabIndex={0} className="lg:hidden " onClick={toggleDropdown}>
+//               <svg
+//                 xmlns="http://www.w3.org/2000/svg"
+//                 className="h-6 w-6"
+//                 fill="none"
+//                 stroke="currentColor"
+//                 strokeWidth="4"
+//               >
+//                 <path
+//                   strokeLinecap="round"
+//                   strokeLinejoin="round"
+//                   d="M4 6h16M4 12h16M4 18h16"
+//                 ></path>
+//               </svg>
+//             </label>
+//             {isDropdownOpen && (
+//               <ul
+//                 tabIndex={0}
+//                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2   w-52"
+//               >
+//                 <li>
+//                   <a
+//                     className="text-sm text-black hover:text-gray-500"
+//                     href="#"
+//                   >
+//                     <NavLink
+//                       to="/"
+//                       className={({ isActive, isPending }) =>
+//                         isPending
+//                           ? "pending"
+//                           : isActive
+//                           ? " hover:text-gray-500 underline"
+//                           : ""
+//                       }
+//                     >
+//                       Home
+//                     </NavLink>
+//                   </a>
+//                 </li>
+//                 <li className="text-gray-300">
+//                   <svg
+//                     xmlns="http://www.w3.org/2000/svg"
+//                     fill="none"
+//                     stroke="currentColor"
+//                     className="w-4 h-4 current-fill"
+//                     viewBox="0 0 24 24"
+//                   >
+//                     <path
+//                       strokeLinecap="round"
+//                       strokeLinejoin="round"
+//                       stroke
+//                       width="2"
+//                       d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+//                     />
+//                   </svg>
+//                 </li>
+//                 <li>
+//                   <a
+//                     className="text-sm text-black hover:text-gray-500"
+//                     href="#"
+//                   >
+//                     <NavLink
+//                       to="/addjob"
+//                       className={({ isActive, isPending }) =>
+//                         isPending
+//                           ? "pending"
+//                           : isActive
+//                           ? " hover:text-gray-500 underline"
+//                           : ""
+//                       }
+//                     >
+//                       Add Job
+//                     </NavLink>
+//                   </a>
+//                 </li>
+//                 <li className="text-gray-300">
+//                   <svg
+//                     xmlns="http://www.w3.org/2000/svg"
+//                     fill="none"
+//                     stroke="currentColor"
+//                     className="w-4 h-4 current-fill"
+//                     viewBox="0 0 24 24"
+//                   >
+//                     <path
+//                       strokeLinecap="round"
+//                       strokeLinejoin="round"
+//                       stroke
+//                       width="2"
+//                       d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+//                     />
+//                   </svg>
+//                 </li>
+//                 <li>
+//                   <a
+//                     className="text-sm text-black hover:text-gray-500 "
+//                     href="#"
+//                   >
+//                     <NavLink
+//                       to="/mypostedjobs"
+//                       className={({ isActive, isPending }) =>
+//                         isPending
+//                           ? "pending"
+//                           : isActive
+//                           ? " hover:text-gray-500 underline"
+//                           : ""
+//                       }
+//                     >
+//                       My posted jobs
+//                     </NavLink>
+//                   </a>
+//                 </li>
+//                 <li className="text-gray-300">
+//                   <svg
+//                     xmlns="http://www.w3.org/2000/svg"
+//                     fill="none"
+//                     stroke="currentColor"
+//                     className="w-4 h-4 current-fill"
+//                     viewBox="0 0 24 24"
+//                   >
+//                     <path
+//                       strokeLinecap="round"
+//                       strokeLinejoin="round"
+//                       stroke
+//                       width="2"
+//                       d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+//                     />
+//                   </svg>
+//                 </li>
+
+//                 <li>
+//                   <a
+//                     className="text-sm text-black hover:text-gray-500"
+//                     href="#"
+//                   >
+//                     <NavLink
+//                       to="/mybids"
+//                       className={({ isActive, isPending }) =>
+//                         isPending
+//                           ? "pending"
+//                           : isActive
+//                           ? " hover:text-gray-500 underline"
+//                           : ""
+//                       }
+//                     >
+//                       My Bids
+//                     </NavLink>
+//                   </a>
+//                 </li>
+//                 <li className="text-gray-300">
+//                   <svg
+//                     xmlns="http://www.w3.org/2000/svg"
+//                     fill="none"
+//                     stroke="currentColor"
+//                     className="w-4 h-4 current-fill"
+//                     viewBox="0 0 24 24"
+//                   >
+//                     <path
+//                       strokeLinecap="round"
+//                       strokeLinejoin="round"
+//                       stroke
+//                       width="2"
+//                       d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+//                     />
+//                   </svg>
+//                 </li>
+//                 <li>
+//                   <a
+//                     className="text-sm text-black hover:text-gray-500"
+//                     href="#"
+//                   >
+//                     <NavLink
+//                       to="/bidrequest"
+//                       className={({ isActive, isPending }) =>
+//                         isPending
+//                           ? "pending"
+//                           : isActive
+//                           ? " hover:text-gray-500 underline"
+//                           : ""
+//                       }
+//                     >
+//                       Bid Requests
+//                     </NavLink>
+//                   </a>
+//                 </li>
+//               </ul>
+//             )}
+//           </div>
+//         </div>
+
+//         {/* large  */}
+//         <div className=" navbar hidden lg:flex gap-10 ">
+//           <ul className="menu-horizontal gap-5   ">
+//             <li>
+//               <a className="text-sm text-black hover:text-gray-500" href="#">
+//                 <NavLink
+//                   to="/"
+//                   className={({ isActive, isPending }) =>
+//                     isPending
+//                       ? "pending"
+//                       : isActive
+//                       ? " hover:text-gray-500 underline"
+//                       : ""
+//                   }
+//                 >
+//                   Home
+//                 </NavLink>
+//               </a>
+//             </li>
+//             <li className="text-gray-300">
+//               <svg
+//                 xmlns="http://www.w3.org/2000/svg"
+//                 fill="none"
+//                 stroke="currentColor"
+//                 className="w-4 h-4 current-fill"
+//                 viewBox="0 0 24 24"
+//               >
+//                 <path
+//                   strokeLinecap="round"
+//                   strokeLinejoin="round"
+//                   stroke
+//                   width="2"
+//                   d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+//                 />
+//               </svg>
+//             </li>
+//             <li>
+//               <a className="text-sm text-black hover:text-gray-500" href="#">
+//                 <NavLink
+//                   to="/addjob"
+//                   className={({ isActive, isPending }) =>
+//                     isPending
+//                       ? "pending"
+//                       : isActive
+//                       ? " hover:text-gray-500 underline"
+//                       : ""
+//                   }
+//                 >
+//                   Add Job
+//                 </NavLink>
+//               </a>
+//             </li>
+//             <li className="text-gray-300">
+//               <svg
+//                 xmlns="http://www.w3.org/2000/svg"
+//                 fill="none"
+//                 stroke="currentColor"
+//                 className="w-4 h-4 current-fill"
+//                 viewBox="0 0 24 24"
+//               >
+//                 <path
+//                   strokeLinecap="round"
+//                   strokeLinejoin="round"
+//                   stroke
+//                   width="2"
+//                   d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+//                 />
+//               </svg>
+//             </li>
+//             <li>
+//               <a className="text-sm text-black hover:text-gray-500 " href="#">
+//                 <NavLink
+//                   to="/mypostedjobs"
+//                   className={({ isActive, isPending }) =>
+//                     isPending
+//                       ? "pending"
+//                       : isActive
+//                       ? " hover:text-gray-500 underline"
+//                       : ""
+//                   }
+//                 >
+//                   My posted jobs
+//                 </NavLink>
+//               </a>
+//             </li>
+//             <li className="text-gray-300">
+//               <svg
+//                 xmlns="http://www.w3.org/2000/svg"
+//                 fill="none"
+//                 stroke="currentColor"
+//                 className="w-4 h-4 current-fill"
+//                 viewBox="0 0 24 24"
+//               >
+//                 <path
+//                   strokeLinecap="round"
+//                   strokeLinejoin="round"
+//                   stroke
+//                   width="2"
+//                   d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+//                 />
+//               </svg>
+//             </li>
+
+//             <li>
+//               <a className="text-sm text-black hover:text-gray-500" href="#">
+//                 <NavLink
+//                   to="/mybids"
+//                   className={({ isActive, isPending }) =>
+//                     isPending
+//                       ? "pending"
+//                       : isActive
+//                       ? " hover:text-gray-500 underline"
+//                       : ""
+//                   }
+//                 >
+//                   My Bids
+//                 </NavLink>
+//               </a>
+//             </li>
+//             <li className="text-gray-300">
+//               <svg
+//                 xmlns="http://www.w3.org/2000/svg"
+//                 fill="none"
+//                 stroke="currentColor"
+//                 className="w-4 h-4 current-fill"
+//                 viewBox="0 0 24 24"
+//               >
+//                 <path
+//                   strokeLinecap="round"
+//                   strokeLinejoin="round"
+//                   stroke
+//                   width="2"
+//                   d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+//                 />
+//               </svg>
+//             </li>
+//             <li>
+//               <a className="text-sm text-black hover:text-gray-500" href="#">
+//                 <NavLink
+//                   to="/bidrequest"
+//                   className={({ isActive, isPending }) =>
+//                     isPending
+//                       ? "pending"
+//                       : isActive
+//                       ? " hover:text-gray-500 underline"
+//                       : ""
+//                   }
+//                 >
+//                   Bid Requests
+//                 </NavLink>
+//               </a>
+//             </li>
+//           </ul>
+
+//           {user ? (
+//             <div
+//               className="flex gap-10 items-center 
+//           "
+//             >
+//               <img
+//                 className="rounded-sm w-12 h-12"
+//                 src={user.photoURL}
+//                 alt=""
+//               />
+//               <p className="text-xs ">{user.displayName}</p>
+//               <button
+//                 onClick={handelSingOut}
+//                 className="btn  mb-2 rounded-lg bg-gradient-to-tr from-pink-600 to-pink-400 py-2 px-4 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+//               >
+//                 Sing Out
+//               </button>
+//             </div>
+//           ) : (
+//             <div
+//               className="  flex gap-10 items-center  mt-2
+//           "
+//             >
+//               <Link to={"/login"}>
+//                 <a className="block px-4 py-3 mb-3  text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl">
+//                   Log In
+//                 </a>
+//               </Link>
+//               <Link to={"/registration"}>
+//                 <a className="block px-4 py-3 mb-3  text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl">
+//                   Regitration
+//                 </a>
+//               </Link>
+//             </div>
+//           )}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default NavBar;

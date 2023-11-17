@@ -4,7 +4,7 @@ import {
 import Roots from "../Layout/Roots";
 import Home from "../Pages/Home/Home";
 import Registrations from "../Pages/Registrations/Registrations";
-import Login from "../Pages/Login/Login";
+import Login from "../Pages/Login/Login"
 import ErrorPage from "../Pages/Error/ErrorPage";
 
 
@@ -25,7 +25,7 @@ import ErrorPage from "../Pages/Error/ErrorPage";
           element:<Registrations></Registrations>
         },
         {
-          path:"login",
+          path:"/login",
           element:<Login></Login>
         }
     ]
