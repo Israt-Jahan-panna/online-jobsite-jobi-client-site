@@ -2,11 +2,11 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <div>
+    <div className="font-EBGaramond">
       <nav className="relative px-4 py-4 flex justify-between items-center bg white shadow-md">
         <img src="https://i.ibb.co/bJVcjyN/icon.png" alt="" />
         <a className="text-3xl font-bold leading-none" href="">
-          jobi
+          JOBI
         </a>
         <div className="lg:hidden">
           <button className="navbar-burger flex items-center text-blue-600 p-3">
@@ -92,7 +92,7 @@ const NavBar = () => {
           </li>
           <li>
             <a className="text-sm text-gray-400 hover:text-gray-500" href="#">
-              Pricing
+			My Bids
             </a>
           </li>
           <li className="text-gray-300">
@@ -114,7 +114,7 @@ const NavBar = () => {
           </li>
           <li>
             <a className="text-sm text-gray-400 hover:text-gray-500" href="#">
-              Contact
+			Bid Requests
             </a>
           </li>
         </ul>

@@ -1,26 +1,59 @@
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
   return (
     <footer className="relative bg-blueGray-200 pt-8 pb-6">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 font-EBGaramond">
         <div className="flex flex-wrap text-left lg:text-left">
           <div className="w-full lg:w-6/12 px-4">
-            <h4 className="text-3xl font-semibold text-blueGray-700">Lets keep in touch!</h4>
-            <h5 className="text-lg mt-0 mb-2 text-blueGray-600">
-              Find us on any of these platforms, we respond 1-2 business days.
-            </h5>
+            <div className="flex items-center gap-2">
+              <img src="https://i.ibb.co/bJVcjyN/icon.png" alt="" />
+              <a className="text-3xl font-bold leading-none" href="">
+                JOBI
+              </a>
+            </div>
+            <h4 className="text-3xl font-semibold text-blueGray-700">
+              Lets keep in touch!
+            </h4>
+
+            <p>
+              If you have any questions or concerns, feel free to reach out to
+              us:
+            </p>
+
+            <address>
+              <p className="font-semibold text-lg">Address</p>
+              <p>BANGLADESH</p>
+              <p>DHAKA 1212, FC 54321</p>
+              <p>Country of Make-Believe</p>
+            </address>
+
+            <p>
+              Email: <a href="mailto:info@example.com">info@jobi.com</a>
+            </p>
             <div className="mt-6 lg:mb-0 mb-6">
-              <button className="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+              <button
+                className="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
                 <i className="fab fa-twitter"></i>
               </button>
-              <button className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+              <button
+                className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
                 <i className="fab fa-facebook-square"></i>
               </button>
-              <button className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+              <button
+                className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
                 <i className="fab fa-dribbble"></i>
               </button>
-              <button className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+              <button
+                className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                type="button"
+              >
                 <i className="fab fa-github"></i>
               </button>
             </div>
@@ -28,36 +61,80 @@ const Footer = () => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="flex flex-wrap items-top mb-6">
               <div className="w-full lg:w-4/12 px-4 ml-auto">
-                <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Useful Links</span>
+                <span className="block uppercase text-blueGray-500 text-lg font-semibold mb-2">
+                  Useful Links
+                </span>
                 <ul className="list-unstyled">
                   <li>
-                    <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://www.creative-tim.com/presentation?ref=njs-profile">About Us</a>
+                    <a
+                      className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href="https://www.creative-tim.com/presentation?ref=njs-profile"
+                    >
+                      About Us
+                    </a>
                   </li>
                   <li>
-                    <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://blog.creative-tim.com?ref=njs-profile">Blog</a>
+                    <a
+                      className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href="https://blog.creative-tim.com?ref=njs-profile"
+                    >
+                      Blog
+                    </a>
                   </li>
                   <li>
-                    <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://www.github.com/creativetimofficial?ref=njs-profile">Github</a>
+                    <a
+                      className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                    >
+                      Github
+                    </a>
                   </li>
                   <li>
-                    <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile">Free Products</a>
+                    <a
+                      className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                    >
+                      Free Products
+                    </a>
                   </li>
                 </ul>
               </div>
               <div className="w-full lg:w-4/12 px-4">
-                <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Other Resources</span>
+                <span className="block uppercase text-blueGray-500 text-lg font-semibold mb-2">
+                  Other Resources
+                </span>
                 <ul className="list-unstyled">
                   <li>
-                    <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile">MIT License</a>
+                    <a
+                      className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                    >
+                      MIT License
+                    </a>
                   </li>
                   <li>
-                    <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://creative-tim.com/terms?ref=njs-profile">Terms & Conditions</a>
+                    <a
+                      className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                    >
+                      Terms & Conditions
+                    </a>
                   </li>
                   <li>
-                    <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://creative-tim.com/privacy?ref=njs-profile">Privacy Policy</a>
+                    <a
+                      className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                    >
+                      Privacy Policy
+                    </a>
                   </li>
                   <li>
-                    <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="https://creative-tim.com/contact-us?ref=njs-profile">Contact Us</a>
+                    <a
+                      className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                      href=""
+                    >
+                      Contact Us
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -68,11 +145,19 @@ const Footer = () => {
         <div className="flex flex-wrap items-center md:justify-between justify-center">
           <div className="w-full md:w-4/12 px-4 mx-auto text-center">
             <div className="text-sm text-blueGray-500 font-semibold py-1">
-              Copyright © <span id="get-current-year">2021</span>
-              <a href="https://www.creative-tim.com/product/notus-js" className="text-blueGray-500 hover:text-gray-800" target="blank">
-                Notus JS by
+              Copyright © <span id="get-current-year">2023</span>
+              <a
+                href="https://www.creative-tim.com/product/notus-js"
+                className="text-blueGray-500 hover:text-gray-800"
+                target="blank"
+              >
+                jobi
               </a>
-              <a href="https://www.creative-tim.com?ref=njs-profile" className="text-blueGray-500 hover:text-blueGray-800">Creative Tim</a>.
+              <a
+                href="https://www.creative-tim.com?ref=njs-profile"
+                className="text-blueGray-500 hover:text-blueGray-800"
+              ></a>
+              .
             </div>
           </div>
         </div>
