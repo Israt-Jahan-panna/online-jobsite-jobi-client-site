@@ -134,11 +134,6 @@ const Login = () => {
             </button>
           </div>
           </form>
-
-          <div className="mx-auto text-center">
-              {sucess && <p className="text-blue-400  mb-6">{sucess}</p>}
-              {loginError && <p className="text-red-400  mb-6">{loginError}</p>}
-            </div>
           <div className="mt-4 flex items-center justify-between">
             <span className="border-b w-1/5 md:w-1/4"></span>
             <a href="#" className="text-xs text-[#00bf58] uppercase">
@@ -146,7 +141,10 @@ const Login = () => {
             </a>
             <span className="border-b w-1/5 md:w-1/4"></span>
           </div>
-          
+          <div className="mx-auto text-center">
+              {sucess && <p className="text-blue-400  mb-6">{sucess}</p>}
+              {loginError && <p className="text-red-400  mb-6">{loginError}</p>}
+            </div>
 
           {/* google login  */}
           <a
