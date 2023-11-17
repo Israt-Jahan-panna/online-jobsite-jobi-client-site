@@ -24,7 +24,7 @@ const NavBar = () => {
         </div>
         <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
           <li>
-            <a className="text-sm text-gray-400 hover:text-gray-500" href="#">
+            <a className="text-sm text-black hover:text-gray-500" href="#">
               Home
             </a>
           </li>
@@ -47,7 +47,7 @@ const NavBar = () => {
           </li>
          
           <li>
-            <a className="text-sm text-gray-400 hover:text-gray-500" href="#">
+            <a className="text-sm text-black hover:text-gray-500" href="#">
              Add job
             </a>
           </li>
@@ -69,7 +69,7 @@ const NavBar = () => {
             </svg>
           </li>
           <li>
-            <a className="text-sm text-gray-400 hover:text-gray-500" href="#">
+            <a className="text-sm text-black hover:text-gray-500" href="#">
               My posted jobs
             </a>
           </li>
@@ -91,7 +91,7 @@ const NavBar = () => {
             </svg>
           </li>
           <li>
-            <a className="text-sm text-gray-400 hover:text-gray-500" href="#">
+            <a className="text-sm text-black hover:text-gray-500" href="#">
 			My Bids
             </a>
           </li>
@@ -113,19 +113,19 @@ const NavBar = () => {
             </svg>
           </li>
           <li>
-            <a className="text-sm text-gray-400 hover:text-gray-500" href="#">
+            <a className="text-sm text-black hover:text-gray-500" href="#">
 			Bid Requests
             </a>
           </li>
         </ul>
         <a
-          className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
+          className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-[#198754]  hover:bg-gray-100 text-sm text-white font-bold  rounded-xl transition duration-200"
           href="#"
         >
-          Sign In
+          Registration
         </a>
         <a
-          className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text white font-bold rounded-xl transition duration-200"
+          className="hidden lg:inline-block py-2 px-6 bg-[#198754] hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
           href="#"
         >
           Sign up
@@ -142,7 +142,7 @@ const NavBar = () => {
             </a>
             <button className="navbar-close">
               <svg
-                className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+                className="h-6 w-6 text-black cursor-pointer hover:text-gray-500"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -161,7 +161,7 @@ const NavBar = () => {
             <ul>
               <li className="mb-1">
                 <a
-                  className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                  className="block p-4 text-sm font-semibold text-black hover:bg-blue-50 hover:text-blue-600 rounded"
                   href="#"
                 >
                   Home
@@ -169,7 +169,7 @@ const NavBar = () => {
               </li>
               <li className="mb-1">
                 <a
-                  className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                  className="block p-4 text-sm font-semibold text-black hover:bg-blue-50 hover:text-blue-600 rounded"
                   href="#"
                 >
                   About Us
@@ -177,7 +177,7 @@ const NavBar = () => {
               </li>
               <li className="mb-1">
                 <a
-                  className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                  className="block p-4 text-sm font-semibold text-black hover:bg-blue-50 hover:text-blue-600 rounded"
                   href="#"
                 >
                   Services
@@ -185,7 +185,7 @@ const NavBar = () => {
               </li>
               <li className="mb-1">
                 <a
-                  className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                  className="block p-4 text-sm font-semibold text-black hover:bg-blue-50 hover:text-blue-600 rounded"
                   href="#"
                 >
                   Pricing
@@ -193,7 +193,7 @@ const NavBar = () => {
               </li>
               <li className="mb-1">
                 <a
-                  className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                  className="block p-4 text-sm font-semibold text-black hover:bg-blue-50 hover:text-blue-600 rounded"
                   href="#"
                 >
                   Contact
@@ -216,7 +216,7 @@ const NavBar = () => {
                 Sign Up
               </a>
             </div>
-            <p className="my-4 text-xs text-center text-gray-400">
+            <p className="my-4 text-xs text-center text-black">
               <span>Copyright © 2021</span>
             </p>
           </div>
