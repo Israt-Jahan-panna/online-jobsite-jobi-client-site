@@ -18,14 +18,14 @@ const Registrations = () => {
     const name = e.target.name.value;
     const password = e.target.password.value;
     if (!name) {
-        setRegisterError("Please enter Your Name");
-        return;
-      }
-  
-      if (!email) {
-        setRegisterError("Please enter your email");
-        return;
-      }
+      setRegisterError("Please enter Your Name");
+      return;
+    }
+
+    if (!email) {
+      setRegisterError("Please enter your email");
+      return;
+    }
     if (password.length < 6) {
       setRegisterError("Enter At Least 6 Character Password");
       return;
@@ -81,6 +81,15 @@ const Registrations = () => {
 
   return (
     <div className="h-full bg-gray-400 dark:bg-gray-900 font-EBGaramond">
+      {/* banner section */}
+      <div className="max-w-[1600px] mx-auto font-EBGaramond">
+        <div className="bg-[#244034] h-96 relative ">
+          <div className="text-white  absolute bottom-1/3 left-1/3 ">
+            <h3 className="text-6xl font-extrabold text-center">Register</h3>
+            <p className="text-xl font-bold text-center mt-4">Create an account & Start posting or hiring talents</p>
+          </div>
+        </div>
+      </div>
       <div className="mx-auto">
         <div className="flex justify-center px-6 py-12">
           <div className="w-full lg:w-7/12 bg-white dark:bg-gray-700 p-5 rounded-lg lg:rounded-l-none">
@@ -92,22 +101,21 @@ const Registrations = () => {
               className="px-8 pt-6 pb-8 mb-4 bg-white dark:bg-gray-800 rounded"
             >
               <div className="mb-4 ">
-              <div className="mb-4">
-                <label
-                  className="block mb-2 text-sm font-bold text-gray-700 dark:text-white"
-                  htmlFor="name"
-                >
-                  Your Name
-                </label>
-                <input
-                  className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                  id="name"
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                />
-              </div>
-                
+                <div className="mb-4">
+                  <label
+                    className="block mb-2 text-sm font-bold text-gray-700 dark:text-white"
+                    htmlFor="name"
+                  >
+                    Your Name
+                  </label>
+                  <input
+                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                  />
+                </div>
               </div>
               <div className="mb-4">
                 <label
@@ -129,7 +137,22 @@ const Registrations = () => {
                   className="block mb-2 text-sm font-bold text-gray-700 dark:text-white"
                   htmlFor="password"
                 >
-                 Password
+                  Image URL
+                </label>
+                <input
+                  className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  type="text"
+                  id="image"
+                  name="image"
+                  placeholder=" Image URL"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  className="block mb-2 text-sm font-bold text-gray-700 dark:text-white"
+                  htmlFor="password"
+                >
+                  Password
                 </label>
                 <input
                   className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -139,7 +162,7 @@ const Registrations = () => {
                   placeholder="password"
                 />
               </div>
-              
+
               <div className="mb-6 text-center">
                 <button
                   className="bg-[#31795a] text-white font-bold py-2 px-4 w-full rounded hover:bg-[#00bf58]"
@@ -149,10 +172,12 @@ const Registrations = () => {
                 </button>
               </div>
               <hr className="mb-6 border-t" />
-              
+
               <div className="mx-auto text-center">
                 {success && <p className="text-blue-400  mb-6">{success}</p>}
-                {registerError && <p className="text-red-400  mb-6">{registerError}</p>}
+                {registerError && (
+                  <p className="text-red-400  mb-6">{registerError}</p>
+                )}
               </div>
               <div className="text-center">
                 <h3>Have an account? </h3>
