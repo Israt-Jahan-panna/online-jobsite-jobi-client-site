@@ -86,7 +86,7 @@ const Registrations = () => {
         <div className="bg-[#244034] h-96 relative ">
           <div className="text-white  absolute bottom-1/3 left-1/3 ">
             <h3 className="text-6xl font-extrabold text-center">Register</h3>
-            <p className="text-xl font-bold text-center mt-4">Create an account & Start posting or hiring talents</p>
+            <p className="text-2xl font-bold text-center mt-4">Create an account & Start posting or hiring talents</p>
           </div>
         </div>
       </div>
