@@ -49,7 +49,7 @@ const Registrations = () => {
 
         const userData = { email, name };
 
-        fetch("your_api_endpoint", {
+        fetch("http://localhost:4100/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -80,11 +80,11 @@ const Registrations = () => {
   };
 
   return (
-    <div className="h-full bg-gray-400 dark:bg-gray-900">
+    <div className="h-full bg-gray-400 dark:bg-gray-900 font-EBGaramond">
       <div className="mx-auto">
         <div className="flex justify-center px-6 py-12">
           <div className="w-full lg:w-7/12 bg-white dark:bg-gray-700 p-5 rounded-lg lg:rounded-l-none">
-            <h3 className="py-4 text-2xl text-center text-gray-800 dark:text-white">
+            <h3 className="py-4 text-4xl font-bold text-center text-gray-800 dark:text-white">
               Create an Account!
             </h3>
             <form
@@ -129,7 +129,7 @@ const Registrations = () => {
                   className="block mb-2 text-sm font-bold text-gray-700 dark:text-white"
                   htmlFor="password"
                 >
-                  Email
+                 Password
                 </label>
                 <input
                   className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -142,7 +142,7 @@ const Registrations = () => {
               
               <div className="mb-6 text-center">
                 <button
-                  className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900 focus:outline-none focus:shadow-outline"
+                  className="bg-[#31795a] text-white font-bold py-2 px-4 w-full rounded hover:bg-[#00bf58]"
                   type="submit"
                 >
                   Register Account
@@ -157,7 +157,7 @@ const Registrations = () => {
               <div className="text-center">
                 <h3>Have an account? </h3>
                 <Link
-                  className="inline-block text-sm text-blue-500 dark:text-blue-500 align-baseline hover:text-blue-800"
+                  className="inline-block  text-[#31795a] font-bold text-lg"
                   to="/login"
                 >
                   Login!

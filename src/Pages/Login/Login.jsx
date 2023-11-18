@@ -52,19 +52,43 @@ const Login = () => {
     };
   
     const handleGoogleLogin = () => {
-        signInWithPopup(auth, provider)
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.insertedId) {
-            // Using Swal to show a success message
-            Swal.fire({
-              title: "Thank You!",
-              text: "Login Successfully",
-              icon: "success",
-              confirmButtonText: "Okay",
+      signInWithPopup(auth, provider)
+        .then((userCredential) => {
+          const user = userCredential.user;
+  
+          // Create an object to send to your server
+          const userData = {
+            name: user.displayName,
+            email: user.email,
+          };
+  
+          // Make a POST request to your server
+          fetch(
+            "http://localhost:4100/users",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(userData),
+            }
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if (data.insertedId) {
+                // Using Swal to show a success message
+                Swal.fire({
+                  title: "Thank You!",
+                  text: "Login Successfully",
+                  icon: "success",
+                  confirmButtonText: "Okay",
+                });
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
             });
-          }
         })
         .catch((error) => {
           console.error("Error:", error);
