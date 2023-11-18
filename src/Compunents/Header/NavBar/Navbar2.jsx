@@ -83,7 +83,7 @@ const Navbar2 = () => {
           <li>
             <a className="text-lg  text-black hover:text-gray-500 " href="#">
               <NavLink
-                to="/mypostedjobs"
+                to="/mypostedjob"
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"

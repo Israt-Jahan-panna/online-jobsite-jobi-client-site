@@ -6,6 +6,8 @@ import Home from "../Pages/Home/Home";
 import Registrations from "../Pages/Registrations/Registrations";
 import Login from "../Pages/Login/Login"
 import ErrorPage from "../Pages/Error/ErrorPage";
+import AddJobForm from "../Pages/AddJobs/AddJobForm";
+import MyPostedJobs from "../Pages/MyPostedJobs/MyPostedJobs";
 
 
   const router = createBrowserRouter([
@@ -20,6 +22,14 @@ import ErrorPage from "../Pages/Error/ErrorPage";
           
         },
        
+        {
+          path:"/addjob",
+          element:<AddJobForm></AddJobForm>
+        },
+        {
+          path:"/mypostedjobs",
+          element:<MyPostedJobs></MyPostedJobs>
+        },
         {
           path:"/registration",
           element:<Registrations></Registrations>
