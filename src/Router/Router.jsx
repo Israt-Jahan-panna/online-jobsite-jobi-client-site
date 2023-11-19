@@ -8,6 +8,8 @@ import Login from "../Pages/Login/Login"
 import ErrorPage from "../Pages/Error/ErrorPage";
 import AddJobForm from "../Pages/AddJobs/AddJobForm";
 import MyPostedJobs from "../Pages/MyPostedJobs/MyPostedJobs";
+import MyBids from "../Pages/MyBids/MyBids";
+import BidRequest from "../Pages/BidRequest/BidRequest";
 
 
   const router = createBrowserRouter([
@@ -33,6 +35,14 @@ import MyPostedJobs from "../Pages/MyPostedJobs/MyPostedJobs";
         {
           path:"/registration",
           element:<Registrations></Registrations>
+        },
+        {
+          path:"/mybids",
+          element:<MyBids></MyBids>
+        },
+        {
+          path:"/bidrequest",
+          element:<BidRequest></BidRequest>
         },
         {
           path:"/login",

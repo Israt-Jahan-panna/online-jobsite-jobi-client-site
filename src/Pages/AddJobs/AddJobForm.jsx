@@ -54,21 +54,31 @@ const AddJobForm = () => {
   };
 
   return (
-    <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
-      <div className="container max-w-screen-lg mx-auto">
+    <div className="min-h-screen p-6 bg-gray-100  font-EBGaramond">
+      <div className='container max-w-screen-lg mx-auto flex items-center justify-center '>
         <div>
-          <h2 className="font-semibold text-xl text-gray-600">Add Job</h2>
+          <h3 className="text-7xl font-extrabold text-[#198754] mb-8">Find the talents for any job.</h3>
+          <p className="font-semibold text-2xl text-gray">Unlock your potential with quality job & earn from world leading brands & co.</p>
+        </div>
+        <div>
+        <img src="https://i.ibb.co/N2vGxSy/ils-01-2.png" alt="" />
+        </div>
+      </div>
 
-          <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+      <div className="container max-w-screen-lg mx-auto">
+        <div className="mt-5">
+          <h2 className="font-semibold text-2xl text-center text-black rounded-lg p-4 bg-[#20c997] ">POST A JOB </h2>
+
+          <div className="bg-white rshadow-lg p-4 px-4 md:p-8 mb-6 rounded-md">
             <form onSubmit={handleSubmit}>
-              <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+              <div className="grid gap-4 gap-y-2 text-lg grid-cols-1 lg:grid-cols-3">
                 <div className="text-gray-600">
                   <p className="font-medium text-lg">Job Details</p>
                   <p>Please fill out all the fields.</p>
                 </div>
 
                 <div className="lg:col-span-2">
-                  <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2">
+                  <div className="grid gap-4 gap-y-2 text-lg grid-cols-1 md:grid-cols-2">
                     <div className="md:col-span-2">
                       <label htmlFor="jobTitle">Job Title</label>
                       <input
