@@ -1,12 +1,13 @@
 // src/components/AddJobForm.js
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 
 const AddJobForm = () => {
   
  
-
+  const { user } = useContext(AuthContext);
   const handleSubmit = (event) => {
     event.preventDefault();
     
@@ -20,7 +21,7 @@ const AddJobForm = () => {
     const maxPrice = form.maxPrice.value;
 
     const addedNewJob ={
-      
+      user,
       jobTitle,
       deadline,
       description,

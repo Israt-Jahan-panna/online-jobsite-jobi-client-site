@@ -2,7 +2,7 @@ import React from "react";
 
 const Tabs = () => {
   return (
-    <div className="container mx-auto px-4 font-EBGaramond">
+    <div className="container mx-auto px-4 font-EBGaramond mt-44">
       <div role="tablist" className="tabs tabs-bordered justify-center">
         <input
           type="radio"
