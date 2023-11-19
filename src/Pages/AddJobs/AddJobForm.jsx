@@ -3,35 +3,54 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 
 
-const AddJobForm = ({ user,  history }) => {
-  const [jobData, setJobData] = useState({
-    employerEmail: user,
-    jobTitle: '',
-    deadline: '',
-    description: '',
-    category: '',
-    minPrice: '',
-    maxPrice: '',
-  });
+const AddJobForm = () => {
+  
+ 
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setJobData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    
+  
+    const form = event.target;
+    const jobTitle = form.jobTitle.value;
+    const  deadline = form. deadline.value;
+    const description = form.description.value;
+    const category = form.category.value.toLowerCase();
+    const minPrice = form.minPrice.value;
+    const maxPrice = form.maxPrice.value;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    // Add your logic to save data to MongoDB here
-    
-    // Display toast
-    Swal.success('Job added successfully!');
-    
-    // Redirect to My Posted Jobs page
-    // history.push('/my-posted-jobs');
+    const addedNewJob ={
+      
+      jobTitle,
+      deadline,
+      description,
+      category,
+      minPrice,
+      maxPrice,
+    };
+     // Send data to the server
+    fetch("http://localhost:4100/addjob", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(addedNewJob),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if(data.insertedId){
+            Swal.fire({
+                title: 'Thank You!',
+                text: 'Product Added Successfully',
+                icon: 'success',
+                confirmButtonText: 'Okay'
+              })
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      })
   };
 
   return (
@@ -57,8 +76,7 @@ const AddJobForm = ({ user,  history }) => {
                         name="jobTitle"
                         id="jobTitle"
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value={jobData.jobTitle}
-                        onChange={handleChange}
+                        
                       />
                     </div>
 
@@ -69,27 +87,23 @@ const AddJobForm = ({ user,  history }) => {
                         name="deadline"
                         id="deadline"
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value={jobData.deadline}
-                        onChange={handleChange}
+                        
                       />
                     </div>
 
+                    
                     <div className="md:col-span-1">
                       <label htmlFor="category">Category</label>
-                      {/* Replace the placeholder with your actual category dropdown */}
                       <select
                         name="category"
                         id="category"
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value={jobData.category}
-                        onChange={handleChange}
+                      
                       >
-                        {/* <option value="">Select Category</option>
-                        {categories.map((category) => (
-                          <option key={category} value={category}>
-                            {category}
-                          </option>
-                        ))} */}
+                        <option value="">Select Category</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="Graphics Design">Graphics Design</option>
                       </select>
                     </div>
 
@@ -99,8 +113,7 @@ const AddJobForm = ({ user,  history }) => {
                         name="description"
                         id="description"
                         className="h-20 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value={jobData.description}
-                        onChange={handleChange}
+                      
                       ></textarea>
                     </div>
 
@@ -111,8 +124,7 @@ const AddJobForm = ({ user,  history }) => {
                         name="minPrice"
                         id="minPrice"
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value={jobData.minPrice}
-                        onChange={handleChange}
+                        
                       />
                     </div>
 
@@ -123,8 +135,7 @@ const AddJobForm = ({ user,  history }) => {
                         name="maxPrice"
                         id="maxPrice"
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value={jobData.maxPrice}
-                        onChange={handleChange}
+                      
                       />
                     </div>
                   </div>
@@ -132,8 +143,8 @@ const AddJobForm = ({ user,  history }) => {
               </div>
 
               <div className="md:col-span-5 text-right">
-                <div className="inline-flex items-end">
-                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">
+                <div className="inline-flex items-end mt-6">
+                  <button className="bg-[#198754] hover:bg-[#20c997] text-white font-bold py-2 px-4 rounded" type="submit">
                     Add Job
                   </button>
                 </div>
