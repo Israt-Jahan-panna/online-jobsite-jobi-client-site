@@ -8,9 +8,9 @@ const Banner = () => {
     >
       <div >
         <div className="hero-content">
-          <div className=" flex justify-center items-center gap-10">
+          <div className=" flex justify-between items-center gap-10">
             <div>
-              <h3 className="text-7xl font-extrabold mb-6 text-white">
+              <h3 className="text-7xl lg:font-extrabold mb-6 text-white">
                 Find & Hire <br />{" "}
                 <span className="text-[#d2f34c] mt-5 mb-4">
                   Top 30% of expert <br /> on jobi.
@@ -23,7 +23,7 @@ const Banner = () => {
             
               <div className="pl-8">
                 <img
-                  className=" rounded-lg "
+                  className=" rounded-lg lg:h-[570PX]"
                   src="https://i.ibb.co/WFkm22G/img-01.jpg"
                   alt=""
                 />
