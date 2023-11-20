@@ -6,9 +6,9 @@ const Banner = () => {
       className="font-EBGaramond max-w-[1600px] mx-auto hero min-h-screen  bg-[#244034] 
     "
     >
-      <div className="">
+      <div >
         <div className="hero-content">
-          <div className=" flex justify-center items-center gap-6">
+          <div className=" flex justify-center items-center gap-10">
             <div>
               <h3 className="text-7xl font-extrabold mb-6 text-white">
                 Find & Hire <br />{" "}
@@ -21,15 +21,14 @@ const Banner = () => {
               </p>
             </div>
             
-              <div className="">
+              <div className="pl-8">
                 <img
-                  className=" -mb-24 "
+                  className=" rounded-lg "
                   src="https://i.ibb.co/WFkm22G/img-01.jpg"
                   alt=""
                 />
               </div>
               
-           
           </div>
         </div>
       </div>

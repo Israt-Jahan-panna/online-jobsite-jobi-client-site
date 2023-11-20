@@ -1,12 +1,13 @@
 import React from 'react';
-import Tabs from '../../Compunents/Tabs/Tabs';
+
 import Banner from './Banner';
+import TabComponent from '../../Compunents/Tabs/TabComponent';
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <Tabs></Tabs>
+            <TabComponent></TabComponent>
         </div>
     );
 };
