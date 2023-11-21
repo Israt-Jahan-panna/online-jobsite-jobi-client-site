@@ -10,7 +10,7 @@ const Find = () => {
             Find the best talented <br /> expert in jobi.
           </h1>
         </div>
-        <div className=" md:flex-row flex flex-col gap-8 shadow-sm px-8 text-center mt-10">
+        <div className=" md:flex-row flex flex-col gap-8 shadow-sm px-6 text-center mt-10">
           <div className="text-lg font-bold ">
             <img src="https://i.ibb.co/cLPswKv/img-07.jpg" alt="" />
             <h1>Emily Davis</h1>
