@@ -240,10 +240,10 @@ const Navbar2 = () => {
           <div className="navbar-end  gap-4 
           ">
             <Link to={"/registration"}>
-              <a className=" mb-2  rounded-lg bg-gradient-to-tr bg-[#00bf58] py-2 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Registration</a>
+              <a className=" mb-2  rounded-lg bg-gradient-to-tr bg-[#00bf58] p-3 lg:py-2 lg:px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Registration</a>
             </Link>
             <Link to={"/login"}>
-              <a className=" mb-2  rounded-lg bg-gradient-to-tr bg-[#00bf58] py-2 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Log In</a>
+              <a className=" mb-2  rounded-lg bg-gradient-to-tr bg-[#00bf58] lg:py-2 lg:px-6 p-3 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">Log In</a>
             </Link>
           </div>
         )}

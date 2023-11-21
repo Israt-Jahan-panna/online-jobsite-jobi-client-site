@@ -6,8 +6,8 @@ const TabComponent = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="relative  bg-white mt-8 pb-6  font-EBGaramond px-8 mx-auto">
-     <div className="rounded mt-10 justify-between flex flex-col lg:flex-row  mb-10 items-center container mx-auto">
+    <div className="relative  bg-gray-100 pb-6  font-EBGaramond px-8 mx-auto">
+     <div className="rounded pt-8 justify-between flex flex-col lg:flex-row  mb-10 items-center container mx-auto">
   <h3 className="bg-blue-gray-50/60 text-4xl lg:text-6xl font-bold mb-6 text-center lg:text-left ml-8">
     Most Demanding <br /> Categories.
   </h3>
@@ -23,7 +23,7 @@ const TabComponent = () => {
 
 
       <Tabs selectedIndex={activeTab} onSelect={(index) => setActiveTab(index)}>
-        <TabList className="relative flex list-none flex-wrap rounded-xl bg-blue-gray-50/60 p-1 text-2xl lg:font-bold items-center justify-center">
+        <TabList className="relative flex list-none flex-wrap rounded-xl bg-blue-gray-50/60 p-1 text-2xl lg:font-bold items-center justify-center ">
           <Tab >
             <i className="fa-solid fa-code" style={{ color: "#198754" }}></i>
             <span className="m-4"> WEB DEVLOPMENT</span>
