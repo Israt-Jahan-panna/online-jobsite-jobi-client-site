@@ -1,88 +1,172 @@
-import React, {  } from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
+const JobDetails = ({ jobs }) => {
+  const {
+    _id,
+    description,
+    shortdescription,
+    jobTitle,
+    deadline,
+    maxPrice,
+    category,
+    minPrice,
+  } = jobs || {};
 
-const JobDetails = ({jobs}) => {
-    const {_id,  description , shortdescription , jobTitle , deadline , maxPrice, category ,minPrice  }= jobs || {} ;
+  const handelAddBids = () => {
+    const myCard = {
+      _id,
+      jobTitle,
+      description,
+      category,
+      maxPrice,
+      minPrice,
+      deadline,
+      shortdescription,
+    };
+    console.log(myCard);
+    // Send data to the server
+      fetch(""
+      , {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(myCard), }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if(data.insertedId){
+              Swal.fire({
+                  title: 'Thank You!',
+                  text: 'Add Your Bids Successful',
+                  icon: 'success',
+                  confirmButtonText: 'Okay'
+                })
+          }
+        })
+  };
+  return (
+    <div className="font-EBGaramond max-w-[1600px] mx-auto min-h-screen bg-[#244034] px-6 lg:px-0">
+      <div className=" lg:mx-12  py-6  lg:flex lg:flex-row lg:justify-center  flex-col my-9 rounded-lg">
+        <div className="my-6 rounded-lg shadow-xl p-8  bg-slate-100  mx-6 text-center lg:w-96">
+          {/* Job Title */}
 
-    const handelAddCard =() =>{
-      const myCard = {
-        _id,
-        jobTitle,
-        description,
-        category,
-        maxPrice,
-        minPrice,
-       deadline,
-        shortdescription
-      };
-      console.log(myCard);
-      // Send data to the server
-    //   fetch("https://fashion-and-apparel-shop-server-6ol0g5b2m-israt-jahans-projects.vercel.app/myproduct"
-    //   , {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(myCard), }
-    //   )
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       console.log(data);
-    //       if(data.insertedId){
-    //           Swal.fire({
-    //               title: 'Thank You!',
-    //               text: 'Add to Card Successful',
-    //               icon: 'success',
-    //               confirmButtonText: 'Okay'
-    //             })
-    //       }
-    //     })
-        
-    }
-    return (
-        <div>
-            <div className="mx-24 font-SometypeMono">
-      <div className=" text-center">
-        <h4 className="uppercase text-2xl font-extrabold w-full">
-          Category {category}
-        </h4>
-      </div>
-      <div className="relative flex w-full flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
-        <div className="relative mx-4 mt-4 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
-          <img src="" alt="ui/ux review check" />
-          <div className="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-tr from-transparent via-transparent to-black/60"></div>
-        </div>
-        <div className="p-3">
-          <div className="flex  justify-center gap-5 mb-3">
-            <h5 className="block text-xl antialiased font-medium leading-snug tracking-normal text-blue-gray-900 uppercase">
-              Brand: {}
-            </h5>
-            <h5 className="block text-xl antialiased font-medium leading-snug tracking-normal text-blue-gray-900 uppercase">
-            Name: {}
-          </h5>
+          <div className="mb-4  ">
+            <h2 className="lg:text-6xl font-semibold text-[#244034]  ">
+              {jobTitle}
+            </h2>
           </div>
-          
-          <div className='flex gap-5 justify-center'>
-          <p className="block text-base antialiased font-medium leading-relaxed text-transparent bg-gradient-to-tr from-pink-600 to-pink-400 bg-clip-text">
-            Price : $ {}
-          </p>
-          <p className="block text-base antialiased font-light leading-relaxed text-gray-700">
-            Type: {}
-          </p>
+
+          {/* Price Range */}
+          <div className="mb-4  ">
+            <span className="text-[#00bf58] font-bold text-xl ">
+              Price Range <br />
+            </span>
+            <span className="font-semibold">
+              {minPrice} - {maxPrice}
+              <span className="opacity-40"></span>
+            </span>
           </div>
-          <h3 className='text-center font-extrabold text-lg'>{description}</h3>
+
+          {/* Description */}
+          <div className="mb-4 ">
+            <span className="text-[#244034] font-bold">
+              Description
+              <br />
+            </span>
+            <span className="text-black lg:text-xl">{description}</span>
+          </div>
+
+          {/* Deadline */}
+          <div className="mb-4">
+            <span className="text-[#244034] font-bold text-lg">
+              Deadline <br />
+            </span>
+            <span className="font-extrabold">{deadline}</span>
+          </div>
+
+          {/* Bid Now Button */}
+          <div className="flex justify-center">
+            <div className="flex gap-4  items-center">
+              <i
+                className="fa-regular fa-bookmark"
+                style={{ color: "#244034" }}
+              ></i>
+              <Link to={"/mybids"}>
+                <button className="bg-[#198754] hover:bg-[#00bf58] text-white px-8 py-2 rounded-xl text-sm">
+                  Bid Now
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="flex justify-center m-4">
-          <>
-          <button onClick={handelAddCard} className="btn bg-[#FF324D] rounded-lg mt-3 " type="button">
-            Add To Cart
-          </button></>
-        
+        {/* Place Your Bid */}
+        <div className="my-6 rounded-lg shadow-xl p-8  bg-slate-100  mx-6  lg:w-96">
+          <h3 className="text-xl font-semibold mb-4">Place Your Bid</h3>
+          <form>
+            <div className="mb-4">
+              <label className="block text-[#244034] font-bold mb-2">
+                Price (your bidding amount)
+              </label>
+              <input
+                type="number"
+                name="price"
+                className="border border-gray-300 rounded-md p-2 w-full"
+                placeholder="Your Price "
+              />
+            </div>
+            <div className="mb-4 my-6 ">
+              <label className="block text-[#244034] font-bold mb-2">
+                Deadline
+              </label>
+              <input
+                type="date"
+                name="deadline"
+                className="border border-gray-300 rounded-md p-2 w-full"
+                placeholder="deadline"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-[#244034] font-bold mb-2">
+                Email 
+              </label>
+              <input
+                type="text"
+                name="userEmail"
+                className="border border-gray-300 rounded-md p-2 w-full"
+                readOnly
+                placeholder="Email"
+              />
+            </div>
+            <div className="mb-4 bg-white ">
+              <label className="block text-[#244034] font-bold mb-2">
+                Buyer Email 
+              </label>
+              <input
+                type="text"
+                name="buyerEmail"
+                className="border border-gray-300 rounded-md p-2 w-full"
+                readOnly
+                placeholder="Buyer email"
+              />
+            </div>
+            <div>
+              <button
+                type="submit"
+                className="bg-[#198754] hover:bg-[#00bf58] text-white px-8 py-2 rounded-xl text-sm"
+                disabled
+              >
+                Bid on the Project
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-        </div>
-    );
+  );
 };
 
 export default JobDetails;
