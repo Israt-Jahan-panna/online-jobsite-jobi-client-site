@@ -10,18 +10,20 @@ const TabComponent = () => {
 
   const [activeTab, setActiveTab] = useState(0);
   useEffect(() => {
-    fetch('http://localhost:4100/addjob')
+    fetch('http://localhost:4100/jobs')
     .then(res => res.json())
     .then(data => setJobs(data))
-    
-
+   
   });
   const webDevlopment = jobs.filter((job)=>job.category == "WEB DEVELOPMENT")
-  console.log(webDevlopment);
+ 
+
   const digitalMarketing = jobs.filter((job)=>job.category == "DIGITAL MARKETING")
-  console.log(webDevlopment);
+ 
+
   const graphicsDesing = jobs.filter((job)=>job.category == "GRAPHICS DESING")
-  console.log(webDevlopment);
+ 
+
   return (
     <div className="relative  bg-gray-100 pb-6  font-EBGaramond px-8 mx-auto">
      <div className="rounded pt-8 justify-between flex flex-col lg:flex-row  mb-10 items-center container mx-auto">
