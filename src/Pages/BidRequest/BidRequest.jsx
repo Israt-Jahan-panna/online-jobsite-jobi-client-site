@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import { ProgressBar, Step } from 'react-step-progress-bar';
-
 const BidRequest = () => {
   const [bidsRequest, setBidsRequest] = useState([]);
 
@@ -12,21 +10,21 @@ const BidRequest = () => {
   }, []);
 
   const handleAccept = (bidId) => {
-    // Implement your logic for accepting a bid and updating status
+    // Implement your logic for accepting a bid
     console.log(`Accepted bid with ID: ${bidId}`);
     // Call API to update status to In Progress
     // For example: updateBidStatus(bidId, 'In Progress');
   };
 
   const handleReject = (bidId) => {
-    // Implement your logic for rejecting a bid and updating status
+    // Implement your logic for rejecting a bid
     console.log(`Rejected bid with ID: ${bidId}`);
     // Call API to update status to Rejected
     // For example: updateBidStatus(bidId, 'Rejected');
   };
 
   return (
-    <div>
+    <div className="my-8 ">
       {bidsRequest.map((bid) => (
         <div key={bid._id} className="mb-5">
           <div className="bg-white rounded-lg shadow-md p-8 mx-12">
@@ -57,35 +55,21 @@ const BidRequest = () => {
                 <span className="font-semibold">${bid.price}</span>
               </div>
 
-              {/* Status, Accept, Reject Buttons */}
+              {/* Accept and Reject Buttons */}
               <div className="flex gap-4 items-center">
-                <span className="text-gray-600 font-bold text-lg">Status<br /></span>
-                <span className="text-black text-lg">{bid.status || "Pending"}</span>
-                {bid.status === "Pending" && (
-                  <>
-                    <button
-                      className="bg-[#198754] hover:bg-[#00bf58] text-white px-8 py-2 rounded-xl text-sm"
-                      onClick={() => handleAccept(bid._id)}
-                    >
-                      Accept
-                    </button>
-                    <button
-                      className="bg-red-500 hover:bg-red-600 text-white px-8 py-2 rounded-xl text-sm"
-                      onClick={() => handleReject(bid._id)}
-                    >
-                      Reject
-                    </button>
-                  </>
-                )}
+                <button
+                  className="bg-[#198754] hover:bg-[#00bf58] text-white px-8 py-2 rounded-xl text-sm"
+                  onClick={() => handleAccept(bid._id)}
+                >
+                  Accept
+                </button>
+                <button
+                  className="bg-red-500 hover:bg-red-600 text-white px-8 py-2 rounded-xl text-sm"
+                  onClick={() => handleReject(bid._id)}
+                >
+                  Reject
+                </button>
               </div>
-
-              {/* Progress Bar */}
-              {bid.status === "In Progress" && (
-                <ProgressBar percent={50} filledBackground="#198754">
-                  <Step />
-                  <Step />
-                </ProgressBar>
-              )}
             </div>
           </div>
         </div>
