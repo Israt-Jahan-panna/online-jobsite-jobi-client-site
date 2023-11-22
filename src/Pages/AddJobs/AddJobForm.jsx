@@ -19,8 +19,6 @@ const AddJobForm = () => {
   const [success, setSuccess] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
-    
-  
     const form = event.target;
     const jobTitle = form.jobTitle.value;
     const buyerEmail= form.buyerEmail.value;
@@ -109,13 +107,14 @@ const AddJobForm = () => {
                       />
                     </div>
                     <div className="md:col-span-2 text-black">
-                      <label htmlFor="jobTitle">Buyer Email</label>
+                      <label htmlFor="jobTitle">Email of the Employee</label>
                       <input
                         type="email"
                         name="buyerEmail"
                         id="buyerEmail"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        placeholder="Enter Your Email User"
+                        className="h-10 border mt-1 rounded px-4 w-full "
+                        readOnly
+                        placeholder={userEmail}
                         
                       />
                     </div>
