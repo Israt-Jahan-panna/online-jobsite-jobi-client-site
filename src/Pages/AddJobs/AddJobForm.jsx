@@ -30,10 +30,11 @@ const AddJobForm = () => {
     const maxPrice = form.maxPrice.value;
     setError("");
     setSuccess("");
-    if (userEmail !== buyerEmail) {
-      setError("Make Sure Buyer Email and User Email is Same ");
+    if (!user) {
+      setError("Make Sure You Are Login ");
       return;
     }
+    
     const addedNewJob ={
       user,
       buyerEmail,
