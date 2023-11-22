@@ -14,6 +14,7 @@ const AddJobForm = () => {
   
     const form = event.target;
     const jobTitle = form.jobTitle.value;
+    const buyerEmail= form.buyerEmail.value;
     const  deadline = form. deadline.value;
     const description = form.description.value;
     const shortdescription = form.shortdescription.value;
@@ -23,6 +24,7 @@ const AddJobForm = () => {
 
     const addedNewJob ={
       user,
+      buyerEmail,
       jobTitle,
       deadline,
       description,
@@ -32,7 +34,7 @@ const AddJobForm = () => {
       maxPrice,
     };
      // Send data to the server
-    fetch("http://localhost:4100/addjob", {
+    fetch("http://localhost:4100/jobs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +47,7 @@ const AddJobForm = () => {
         if(data.insertedId){
             Swal.fire({
                 title: 'Thank You!',
-                text: 'Product Added Successfully',
+                text: 'Jobs Added Successfully',
                 icon: 'success',
                 confirmButtonText: 'Okay'
               })
@@ -87,6 +89,16 @@ const AddJobForm = () => {
                       <input
                         type="text"
                         name="jobTitle"
+                        id="jobTitle"
+                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        
+                      />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label htmlFor="jobTitle">Buyer Email</label>
+                      <input
+                        type="email"
+                        name="buyerEmail"
                         id="jobTitle"
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                         

@@ -65,8 +65,13 @@ const Registrations = () => {
                 text: "User Added Successfully",
                 icon: "success",
                 confirmButtonText: "Okay",
+              })
+              .then(() => {
+                // Redirect to home
+                window.location.href = '/';
               });
             }
+            
           })
           .catch((error) => {
             console.error("Error:", error);

@@ -1,9 +1,10 @@
 import React from 'react';
+import CardTab from '../../Compunents/cardtab/cardTab';
 
 const MyBids = () => {
     return (
         <div>
-            <h3>MyBids</h3>
+            <CardTab></CardTab>
         </div>
     );
 };

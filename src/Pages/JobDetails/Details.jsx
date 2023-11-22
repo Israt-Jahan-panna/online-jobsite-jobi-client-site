@@ -13,7 +13,7 @@ const Details = () => {
           setJobs(data);
       })
    },[_id])
-   console.log(job)
+//    console.log(job)
     return (
       <div>
       {
