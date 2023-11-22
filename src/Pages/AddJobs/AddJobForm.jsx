@@ -15,7 +15,8 @@ const AddJobForm = () => {
       setUserEmail(user.email);
     }
   }, [user]);
-
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
     
@@ -29,8 +30,14 @@ const AddJobForm = () => {
     const category = form.category.value.toUpperCase();
     const minPrice = form.minPrice.value;
     const maxPrice = form.maxPrice.value;
- 
+    setError("");
+    setSuccess("");
+    if (userEmail !== buyerEmail) {
+      setError("Make Sure Buyer Email and User Email is Same ");
+      return;
+    }
     const addedNewJob ={
+      user,
       buyerEmail,
       jobTitle,
       deadline,
@@ -101,13 +108,14 @@ const AddJobForm = () => {
                         
                       />
                     </div>
-                    <div className="md:col-span-2">
+                    <div className="md:col-span-2 text-black">
                       <label htmlFor="jobTitle">Buyer Email</label>
                       <input
                         type="email"
                         name="buyerEmail"
-                        id="jobTitle"
+                        id="buyerEmail"
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        placeholder="Enter Your Email User"
                         
                       />
                     </div>
@@ -181,14 +189,21 @@ const AddJobForm = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="md:col-span-5 text-right">
-                <div className="inline-flex items-end mt-6">
-                  <button className="bg-[#198754] hover:bg-[#20c997] text-white font-bold py-2 px-4 rounded" type="submit">
+                <div className="md:col-span-5 text-right">
+                <div className="flex items-center justify-center gap-4 mt-6">
+                  <div>
+                  {success && <p className="text-blue-400  mb-6">{success}</p>}
+                {error && (
+                  <p className="text-red-400  mb-6">{error}</p>
+                )}
+                  </div>
+                 <div>
+                 <button className="bg-[#198754] hover:bg-[#20c997] text-white font-bold py-2 px-4 rounded " type="submit">
                     Add Job
                   </button>
+                 </div>
                 </div>
+              </div>
               </div>
             </form>
           </div>

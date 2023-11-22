@@ -170,7 +170,7 @@ const JobDetails = ({ jobs }) => {
                 placeholder="deadline"
               />
             </div>
-            <div className="mb-4">
+            <div className="mb-4 text-black">
     <label className="block text-[#244034] font-bold mb-2">
       Email
     </label>
@@ -202,7 +202,7 @@ const JobDetails = ({ jobs }) => {
               >
                 Bid on the Project
               </button>
-              <hr />
+              
               <div className="mx-auto text-center">
                 {success && <p className="text-blue-400  mb-6">{success}</p>}
                 {error && (
