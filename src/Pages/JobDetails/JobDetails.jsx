@@ -4,12 +4,21 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const JobDetails = ({ jobs }) => {
- const  {user} = useContext(AuthContext)
- const [userEmail, setUserEmail] = useState('');
- useEffect(() => {
-  // Update the state with the user's email
-  setUserEmail(user.email); // Adjust this based on your actual user object structure
-}, [user]);
+  const { user } = useContext(AuthContext);
+  const [userEmail, setUserEmail] = useState('');
+  
+  useEffect(() => {
+    // Check if user is defined and has an email property
+    if (user && user.email) {
+      // Update the state with the user's email
+      setUserEmail(user.email);
+    }
+  }, [user]);
+  
+  console.log(user);
+ const [error, setError] = useState("");
+ const [success, setSuccess] = useState("");
+ 
   const {
     buyerEmail,
     description,
@@ -30,7 +39,26 @@ const JobDetails = ({ jobs }) => {
     const price = form.price.value;
     const userEmail = form.userEmail.value;
     const buyerEmail = form.buyerEmail.value;
+    if (!price) {
+      setError("Please enter Your Price");
+      return;
+    }
 
+    if (!myDeadline) {
+      setError("Please enter your Deadlines");
+      return;
+    }
+    setError("");
+    setSuccess("");
+    if (userEmail === buyerEmail) {
+      Swal.fire({
+        title: 'Error',
+        text: 'Employers cannot bid on their own jobs.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+      return; // Stop the function execution
+    }
     const myBids = {
       userEmail,
       buyerEmail,
@@ -143,29 +171,29 @@ const JobDetails = ({ jobs }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-[#244034] font-bold mb-2">
-                Email 
-              </label>
-              <input
-                type="text"
-                name="userEmail"
-                className="border border-gray-300 text-black rounded-md p-2 w-full"
-                readOnly
-                placeholder={userEmail}
-              />
-            </div>
-            <div className="mb-4 bg-white ">
-              <label className="block text-[#244034] font-bold mb-2">
-                Buyer Email 
-              </label>
-              <input
-                type="text"
-                name="buyerEmail"
-                className="border border-gray-300 rounded-md p-2 w-full"
-                readOnly
-                placeholder={buyerEmail}
-              />
-            </div>
+    <label className="block text-[#244034] font-bold mb-2">
+      Email
+    </label>
+    <input
+      type="text"
+      name="userEmail"
+      className="border border-gray-300 text-black rounded-md p-2 w-full"
+      value={userEmail}  // Set the value directly
+      readOnly={true}
+    />
+  </div>
+  <div className="mb-4 bg-white ">
+    <label className="block text-[#244034] font-bold mb-2">
+      Buyer Email
+    </label>
+    <input
+      type="text"
+      name="buyerEmail"
+      className="border border-gray-300 rounded-md p-2 w-full"
+      value={buyerEmail}  // Set the value directly
+      readOnly={true}
+    />
+  </div>
             <div>
               <button
                 type="submit"
@@ -174,6 +202,13 @@ const JobDetails = ({ jobs }) => {
               >
                 Bid on the Project
               </button>
+              <hr />
+              <div className="mx-auto text-center">
+                {success && <p className="text-blue-400  mb-6">{success}</p>}
+                {error && (
+                  <p className="text-red-400  mb-6">{error}</p>
+                )}
+              </div>
             </div>
           </form>
         </div>

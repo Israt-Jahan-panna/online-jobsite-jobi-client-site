@@ -1,13 +1,21 @@
 // src/components/AddJobForm.js
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 
 const AddJobForm = () => {
-  
- 
   const { user } = useContext(AuthContext);
+  const [userEmail, setUserEmail] = useState('');
+  
+  useEffect(() => {
+    // Check if user is defined and has an email property
+    if (user && user.email) {
+      // Update the state with the user's email
+      setUserEmail(user.email);
+    }
+  }, [user]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     
@@ -21,9 +29,8 @@ const AddJobForm = () => {
     const category = form.category.value.toUpperCase();
     const minPrice = form.minPrice.value;
     const maxPrice = form.maxPrice.value;
-
+ 
     const addedNewJob ={
-      user,
       buyerEmail,
       jobTitle,
       deadline,
