@@ -16,7 +16,8 @@ const AddJobForm = () => {
     const jobTitle = form.jobTitle.value;
     const  deadline = form. deadline.value;
     const description = form.description.value;
-    const category = form.category.value.toLowerCase();
+    const shortdescription = form.shortdescription.value;
+    const category = form.category.value.toUpperCase();
     const minPrice = form.minPrice.value;
     const maxPrice = form.maxPrice.value;
 
@@ -25,6 +26,7 @@ const AddJobForm = () => {
       jobTitle,
       deadline,
       description,
+      shortdescription,
       category,
       minPrice,
       maxPrice,
@@ -116,6 +118,15 @@ const AddJobForm = () => {
                         <option value="Digital Marketing">Digital Marketing</option>
                         <option value="Graphics Design">Graphics Design</option>
                       </select>
+                    </div>
+                    <div className="md:col-span-2">
+                      <label htmlFor="shortdescription">Short Description</label>
+                      <textarea
+                        name="shortdescription"
+                        id="shortdescription"
+                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      
+                      ></textarea>
                     </div>
 
                     <div className="md:col-span-2">

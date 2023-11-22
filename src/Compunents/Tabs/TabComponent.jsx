@@ -1,10 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import CardTab from "../cardtab/cardTab";
 
 const TabComponent = () => {
-  const [activeTab, setActiveTab] = useState(0);
+ 
+  const [jobs , setJobs] = useState([]);
 
+  const [activeTab, setActiveTab] = useState(0);
+  useEffect(() => {
+    fetch('http://localhost:4100/addjob')
+    .then(res => res.json())
+    .then(data => setJobs(data))
+    
+
+  });
+  const webDevlopment = jobs.filter((job)=>job.category == "WEB DEVELOPMENT")
+  console.log(webDevlopment);
+  const digitalMarketing = jobs.filter((job)=>job.category == "DIGITAL MARKETING")
+  console.log(webDevlopment);
+  const graphicsDesing = jobs.filter((job)=>job.category == "GRAPHICS DESING")
+  console.log(webDevlopment);
   return (
     <div className="relative  bg-gray-100 pb-6  font-EBGaramond px-8 mx-auto">
      <div className="rounded pt-8 justify-between flex flex-col lg:flex-row  mb-10 items-center container mx-auto">
@@ -45,168 +62,21 @@ const TabComponent = () => {
         </TabList>
 
         <TabPanel>
-          <div className=" bg-white rounded-lg shadow-md p-8  mx-12  ">
-            <div className="flex flex-col md:flex-row md:justify-between lg:items-center gap-4">
-              {/* Job Title */}
-
-              <div className="mb-4 md:mb-0">
-                <h2 className="text-2xl font-semibold w-14">
-                  Full Stack Developer
-                </h2>
-              </div>
-
-              {/* Price Range */}
-              <div className="mb-4 md:mb-0">
-                <span className="text-[#00bf58] font-bold">
-                  Price Range <br />
-                </span>
-                <span className="font-semibold">
-                  $50,000 - $70,000{" "}
-                  <span className="opacity-40">/Per Month</span>
-                </span>
-              </div>
-
-              {/* Short Description */}
-              <div className="mb-4 md:mb-0">
-                <span className="text-gray-600 font-bold">
-                  Description
-                  <br />
-                </span>
-                <span className="text-black text-lg">
-                  Create responsive and intuitive user interfaces.
-                </span>
-              </div>
-
-              {/* Deadline */}
-              <div className="mb-4 md:mb-0">
-                <span className="text-gray-600 font-bold text-lg">
-                  Deadline <br />
-                </span>
-                <span className="font-extrabold">December 31, 2023</span>
-              </div>
-
-              {/* Bid Now Button */}
-              <div className="flex gap-4 items-center">
-                <i
-                  className="fa-regular fa-bookmark"
-                  style={{ color: "#244034" }}
-                ></i>
-                <button className="bg-[#198754] hover:bg-[#00bf58] text-white px-8 py-2 rounded-xl text-sm">
-                  Bid Now
-                </button>
-              </div>
-            </div>
-          </div>
+         {
+          webDevlopment.map(jobs=> <CardTab key={jobs.id} jobs={jobs}></CardTab>)
+         }
         </TabPanel>
 
         <TabPanel>
-          <div className=" bg-white rounded-lg shadow-md p-8  mx-12  ">
-            <div className="flex flex-col md:flex-row md:justify-between lg:items-center gap-4">
-              {/* Job Title */}
-
-              <div className="mb-4 md:mb-0">
-                <h2 className="text-2xl font-semibold w-14">
-                  Full Stack Developer
-                </h2>
-              </div>
-
-              {/* Price Range */}
-              <div className="mb-4 md:mb-0">
-                <span className="text-[#00bf58] font-bold">
-                  Price Range <br />
-                </span>
-                <span className="font-semibold">
-                  $50,000 - $70,000{" "}
-                  <span className="opacity-40">/Per Month</span>
-                </span>
-              </div>
-
-              {/* Short Description */}
-              <div className="mb-4 md:mb-0">
-                <span className="text-gray-600 font-bold">
-                  Description
-                  <br />
-                </span>
-                <span className="text-black text-lg">
-                  Create responsive and intuitive user interfaces.
-                </span>
-              </div>
-
-              {/* Deadline */}
-              <div className="mb-4 md:mb-0">
-                <span className="text-gray-600 font-bold text-lg">
-                  Deadline <br />
-                </span>
-                <span className="font-extrabold">December 31, 2023</span>
-              </div>
-
-              {/* Bid Now Button */}
-              <div className="flex gap-4 items-center">
-                <i
-                  className="fa-regular fa-bookmark"
-                  style={{ color: "#244034" }}
-                ></i>
-                <button className="bg-[#198754] hover:bg-[#00bf58] text-white px-8 py-2 rounded-xl text-sm">
-                  Bid Now
-                </button>
-              </div>
-            </div>
-          </div>
+        {
+         digitalMarketing.map(jobs=> <CardTab key={jobs.id} jobs={jobs}></CardTab>)
+         }
         </TabPanel>
 
         <TabPanel>
-          <div className=" bg-white rounded-lg shadow-md p-8  mx-12  ">
-            <div className="flex flex-col md:flex-row md:justify-between lg:items-center gap-4">
-              {/* Job Title */}
-
-              <div className="mb-4 md:mb-0">
-                <h2 className="text-2xl font-semibold w-14">
-                  Full Stack Developer
-                </h2>
-              </div>
-
-              {/* Price Range */}
-              <div className="mb-4 md:mb-0">
-                <span className="text-[#00bf58] font-bold">
-                  Price Range <br />
-                </span>
-                <span className="font-semibold">
-                  $50,000 - $70,000{" "}
-                  <span className="opacity-40">/Per Month</span>
-                </span>
-              </div>
-
-              {/* Short Description */}
-              <div className="mb-4 md:mb-0">
-                <span className="text-gray-600 font-bold">
-                  Description
-                  <br />
-                </span>
-                <span className="text-black text-lg">
-                  Create responsive and intuitive user interfaces.
-                </span>
-              </div>
-
-              {/* Deadline */}
-              <div className="mb-4 md:mb-0">
-                <span className="text-gray-600 font-bold text-lg">
-                  Deadline <br />
-                </span>
-                <span className="font-extrabold">December 31, 2023</span>
-              </div>
-
-              {/* Bid Now Button */}
-              <div className="flex gap-4 items-center">
-                <i
-                  className="fa-regular fa-bookmark"
-                  style={{ color: "#244034" }}
-                ></i>
-                <button className="bg-[#198754] hover:bg-[#00bf58] text-white px-8 py-2 rounded-xl text-sm">
-                  Bid Now
-                </button>
-              </div>
-            </div>
-          </div>
+        {
+         graphicsDesing.map(jobs=> <CardTab key={jobs.id} jobs={jobs}></CardTab>)
+         }
         </TabPanel>
       </Tabs>
     </div>

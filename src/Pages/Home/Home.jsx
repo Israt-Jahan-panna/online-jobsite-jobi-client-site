@@ -6,10 +6,11 @@ import Find from './Find';
 import MatchJobs from './MatchJobs';
 
 const Home = () => {
+    
     return (
         <div >
             <Banner></Banner>
-            <TabComponent></TabComponent>
+       <TabComponent></TabComponent>
             <MatchJobs></MatchJobs>
             <Find></Find>
         </div>

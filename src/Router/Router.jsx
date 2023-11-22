@@ -10,6 +10,7 @@ import AddJobForm from "../Pages/AddJobs/AddJobForm";
 import MyPostedJobs from "../Pages/MyPostedJobs/MyPostedJobs";
 import MyBids from "../Pages/MyBids/MyBids";
 import BidRequest from "../Pages/BidRequest/BidRequest";
+import TabComponent from "../Compunents/Tabs/TabComponent";
 
 
   const router = createBrowserRouter([
@@ -23,10 +24,16 @@ import BidRequest from "../Pages/BidRequest/BidRequest";
             element:<Home></Home>
           
         },
-       
+      
         {
           path:"/addjob",
           element:<AddJobForm></AddJobForm>
+        },
+        {
+          path:"/jobpost/:catagories",
+          element:<TabComponent></TabComponent>,
+          loader: () => fetch ('/JobCatagories.json')
+      
         },
         {
           path:"/mypostedjobs",
