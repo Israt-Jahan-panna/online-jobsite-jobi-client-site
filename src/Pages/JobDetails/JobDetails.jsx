@@ -30,77 +30,113 @@ const JobDetails = ({ jobs }) => {
     minPrice,
   } = jobs || {};
 
-  const handelAddBids = (event) => {
+  const handelAddBids = async (event) => {
     event.preventDefault();
-    
   
     const form = event.target;
-    const  myDeadline = form. deadline.value;
+    const myDeadline = form.deadline.value;
     const price = form.price.value;
     const userEmail = form.userEmail.value;
     const buyerEmail = form.buyerEmail.value;
-    if (!price) {
-      setError("Please enter Your Price");
-      return;
-    }
-
-    if (!myDeadline) {
-      setError("Please enter your Deadlines");
-      return;
-    }
-    setError("");
-    setSuccess("");
-    if (userEmail === buyerEmail) {
-      Swal.fire({
-        title: 'Error',
-        text: 'Employers cannot bid on their own jobs.',
-        icon: 'error',
-        confirmButtonText: 'OK'
-      });
-      return; // Stop the function execution
-    }
-    const myBids = {
-      userEmail,
-      buyerEmail,
-      user,
-      jobTitle,
-      description,
-      category,
-      maxPrice,
-      minPrice,
-      myDeadline,
-      shortdescription,
-      price,
-    };
-    console.log(myBids);
-    // Send data to the server
-      fetch("http://localhost:4100/mybids"
-      , {
+  
+    try {
+      if (!price) {
+        setError("Please enter Your Price");
+        return;
+      }
+  
+      if (!myDeadline) {
+        setError("Please enter your Deadlines");
+        return;
+      }
+  
+      setError("");
+      setSuccess("");
+  
+      if (userEmail === buyerEmail) {
+        Swal.fire({
+          title: "Error",
+          text: "Employers cannot bid on their own jobs.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+        return; // Stop the function execution
+      }
+  
+      const myBids = {
+        userEmail,
+        buyerEmail,
+        user,
+        jobTitle,
+        description,
+        category,
+        maxPrice,
+        minPrice,
+        myDeadline,
+        shortdescription,
+        price,
+      };
+  
+      const bidsRequest = {
+        userEmail,
+        buyerEmail,
+        user,
+        jobTitle,
+        description,
+        category,
+        maxPrice,
+        minPrice,
+        myDeadline,
+        shortdescription,
+        price,
+      };
+  
+      // Send data to bidsrequest endpoint
+      const bidsRequestResponse = await fetch("http://localhost:4100/bidsrequest", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(myBids), }
-      )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Data:", data);
-        if (data.insertedId) {
-          console.log("Success!");
-          Swal.fire({
-            title: 'Thank You!',
-            text: 'Jobs Added Successfully',
-            icon: 'success',
-            confirmButtonText: 'Okay'
-          })
-          .then(() => {
-            // Redirect to /mybids
-            window.location.href = "/mybids";
-          });
-        } else {
-          console.log("No insertedId in data:", data);
-        }
-      })
+        body: JSON.stringify(bidsRequest),
+      });
+  
+      if (!bidsRequestResponse.ok) {
+        throw new Error("Bids Request failed");
+      }
+  
+      // Send data to mybids endpoint
+      const myBidsResponse = await fetch("http://localhost:4100/mybids", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(myBids),
+      });
+  
+      if (!myBidsResponse.ok) {
+        throw new Error("My Bids Request failed");
+      }
+  
+      const myBidsData = await myBidsResponse.json();
+  
+      if (myBidsData.insertedId) {
+        console.log("Success!");
+        Swal.fire({
+          title: "Thank You!",
+          text: "Jobs Added Successfully",
+          icon: "success",
+          confirmButtonText: "Okay",
+        }).then(() => {
+          // Redirect to /mybids
+          window.location.href = "/mybids";
+        });
+      } else {
+        console.log("No insertedId in data:", myBidsData);
+      }
+    } catch (error) {
+      console.error("Error:", error.message);
+      setError("An error occurred while processing your request.");
+    }
   };
   return (
     <div className="font-EBGaramond max-w-[1600px] mx-auto min-h-screen bg-[#244034] px-6 lg:px-0">

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import CardTab from '../../Compunents/cardtab/cardTab';
+import MyBidsCard from './MyBidsCard';
 
 const MyBids = () => {
     const [myBids , setMyBids] = useState([]);
@@ -13,7 +13,7 @@ const MyBids = () => {
     return (
         <div>
             {
-        myBids.map(jobs=> <CardTab key={jobs.id} jobs={jobs}></CardTab>)
+        myBids.map(jobs=> <MyBidsCard key={jobs.id} jobs={jobs}></MyBidsCard>)
          }
         </div>
     );
