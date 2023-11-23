@@ -5,8 +5,8 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const JobDetails = ({ jobs }) => {
   const { user } = useContext(AuthContext);
-  const [userEmail, setUserEmail] = useState('');
-  
+  const [userEmail, setUserEmail] = useState("");
+
   useEffect(() => {
     // Check if user is defined and has an email property
     if (user && user.email) {
@@ -14,11 +14,11 @@ const JobDetails = ({ jobs }) => {
       setUserEmail(user.email);
     }
   }, [user]);
-  
+
   console.log(user);
- const [error, setError] = useState("");
- const [success, setSuccess] = useState("");
- 
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
   const {
     buyerEmail,
     description,
@@ -32,27 +32,27 @@ const JobDetails = ({ jobs }) => {
 
   const handelAddBids = async (event) => {
     event.preventDefault();
-  
+
     const form = event.target;
     const myDeadline = form.deadline.value;
     const price = form.price.value;
     const userEmail = form.userEmail.value;
     const buyerEmail = form.buyerEmail.value;
-  
+
     try {
       if (!price) {
         setError("Please enter Your Price");
         return;
       }
-  
+
       if (!myDeadline) {
         setError("Please enter your Deadlines");
         return;
       }
-  
+
       setError("");
       setSuccess("");
-  
+
       if (userEmail === buyerEmail) {
         Swal.fire({
           title: "Error",
@@ -62,7 +62,7 @@ const JobDetails = ({ jobs }) => {
         });
         return; // Stop the function execution
       }
-  
+
       const myBids = {
         userEmail,
         buyerEmail,
@@ -76,7 +76,7 @@ const JobDetails = ({ jobs }) => {
         shortdescription,
         price,
       };
-  
+
       const bidsRequest = {
         userEmail,
         buyerEmail,
@@ -90,20 +90,23 @@ const JobDetails = ({ jobs }) => {
         shortdescription,
         price,
       };
-  
+
       // Send data to bidsrequest endpoint
-      const bidsRequestResponse = await fetch("http://localhost:4100/bidsrequest", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(bidsRequest),
-      });
-  
+      const bidsRequestResponse = await fetch(
+        "http://localhost:4100/bidsrequest",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(bidsRequest),
+        }
+      );
+
       if (!bidsRequestResponse.ok) {
         throw new Error("Bids Request failed");
       }
-  
+
       // Send data to mybids endpoint
       const myBidsResponse = await fetch("http://localhost:4100/mybids", {
         method: "POST",
@@ -112,13 +115,13 @@ const JobDetails = ({ jobs }) => {
         },
         body: JSON.stringify(myBids),
       });
-  
+
       if (!myBidsResponse.ok) {
         throw new Error("My Bids Request failed");
       }
-  
+
       const myBidsData = await myBidsResponse.json();
-  
+
       if (myBidsData.insertedId) {
         console.log("Success!");
         Swal.fire({
@@ -207,43 +210,40 @@ const JobDetails = ({ jobs }) => {
               />
             </div>
             <div className="mb-4 text-black">
-    <label className="block text-[#244034] font-bold mb-2">
-      Email
-    </label>
-    <input
-      type="text"
-      name="userEmail"
-      className="border border-gray-300 text-black rounded-md p-2 w-full"
-      value={userEmail}  // Set the value directly
-      readOnly={true}
-    />
-  </div>
-  <div className="mb-4 bg-white ">
-    <label className="block text-[#244034] font-bold mb-2">
-      Buyer Email
-    </label>
-    <input
-      type="text"
-      name="buyerEmail"
-      className="border border-gray-300 rounded-md p-2 w-full"
-      value={buyerEmail}  // Set the value directly
-      readOnly={true}
-    />
-  </div>
+              <label className="block text-[#244034] font-bold mb-2">
+                Email
+              </label>
+              <input
+                type="text"
+                name="userEmail"
+                className="border border-gray-300 text-black rounded-md p-2 w-full"
+                value={userEmail} // Set the value directly
+                readOnly={true}
+              />
+            </div>
+            <div className="mb-4 bg-white ">
+              <label className="block text-[#244034] font-bold mb-2">
+                Buyer Email
+              </label>
+              <input
+                type="text"
+                name="buyerEmail"
+                className="border border-gray-300 rounded-md p-2 w-full"
+                value={buyerEmail} // Set the value directly
+                readOnly={true}
+              />
+            </div>
             <div>
               <button
                 type="submit"
                 className="bg-[#198754] hover:bg-[#00bf58] text-white px-8 py-2 rounded-xl text-sm"
-                
               >
                 Bid on the Project
               </button>
-              
+
               <div className="mx-auto text-center">
                 {success && <p className="text-blue-400  mb-6">{success}</p>}
-                {error && (
-                  <p className="text-red-400  mb-6">{error}</p>
-                )}
+                {error && <p className="text-red-400  mb-6">{error}</p>}
               </div>
             </div>
           </form>

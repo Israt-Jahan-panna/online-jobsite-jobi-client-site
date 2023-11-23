@@ -100,6 +100,7 @@ const PostCard = ({ jobs, SetJobs }) => {
           </div>
         </div>
       )}
+      
     </div>
   );
 };

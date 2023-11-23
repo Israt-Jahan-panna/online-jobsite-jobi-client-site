@@ -26,6 +26,8 @@ const Login = () => {
         setLoginError("");
         setSucess("");
         console.log(email, password);
+
+        // stying in location and rediret to 
         if (loading) {
           <progress className="progress w-56"></progress>;
         }
@@ -34,7 +36,12 @@ const Login = () => {
             const user = results.user;
             console.log(user);
             // navigation
-            navigate(location?.state ? location.state : "/");
+            if (location?.state) {
+              navigate(location.state);
+            } else {
+            
+              navigate('/');
+            }
             if (user) {
               setSucess(" Your Account Login SuccessFully ");
               Swal("Login successful", "success");
@@ -55,8 +62,18 @@ const Login = () => {
       signInWithPopup(auth, provider)
         .then((userCredential) => {
           const user = userCredential.user;
-  
-          // Create an object to send to your server
+          
+  // stying in location and rediret to 
+          if (loading) {
+            <progress className="progress w-56"></progress>;
+          }
+          if (location?.state) {
+            navigate(location.state);
+          } else {
+          
+            navigate('/');
+          }
+                // Create an object to send to your server
           const userData = {
             name: user.displayName,
             email: user.email,

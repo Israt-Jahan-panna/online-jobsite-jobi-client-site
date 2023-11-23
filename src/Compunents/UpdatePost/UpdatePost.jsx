@@ -32,63 +32,57 @@ const UpdatePost = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
     const handelUpdatePost = (event) => {
-      
-    
-        event.preventDefault();
-    const form = event.target;
-    const jobTitle = form.jobTitle.value;
-    const buyerEmail = form.buyerEmail.value;
-    const deadline = form.deadline.value;
-    const description = form.description.value;
-    const shortdescription = form.shortdescription.value;
-    const category = form.category.value.toUpperCase();
-    const minPrice = form.minPrice.value;
-    const maxPrice = form.maxPrice.value;
-    
-        const UpdatePost = {
-        
-            user,
-            buyerEmail,
-            jobTitle,
-            deadline,
-            description,
-            shortdescription,
-            category,
-            minPrice,
-            maxPrice,
-        };
-        console.log(UpdatePost);
-        setError("");
-        setSuccess("");
-        
-    
-        // Send data to the server
-        fetch(`http://localhost:4100/jobs/${_id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(UpdatePost),
-        })
-          .then((res) => res.json())
+  event.preventDefault();
+  const form = event.target;
+  const jobTitle = form.jobTitle.value;
+  const buyerEmail = form.buyerEmail.value;
+  const deadline = form.deadline.value;
+  const description = form.description.value;
+  const shortdescription = form.shortdescription.value;
+  const category = form.category.value.toUpperCase();
+  const minPrice = form.minPrice.value;
+  const maxPrice = form.maxPrice.value;
+
+  const updatePost = {
+    buyerEmail,
+    jobTitle,
+    deadline,
+    description,
+    shortdescription,
+    category,
+    minPrice,
+    maxPrice,
+  };
+
+  setError("");
+  setSuccess("");
+
+  // Send data to the server
+  fetch(`http://localhost:4100/jobs/${_id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatePost),
+  })
+    .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            if (data.insertedId) {
-              Swal.fire({
-                title: "Thank You!",
-                text: "Jobs Added Successfully",
-                icon: "success",
-                confirmButtonText: "Okay",
-              }).then(() => {
-                // Redirect to /mypostedjobs
-                window.location.href = "/mypostedjobs";
-              });
+            if(data.modifiedCount > 0){
+                Swal.fire({
+                    title: 'Thank You!',
+                    text: 'Product Updated Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Okay'
+                  })
+                  .then(() => {
+                    // Redirect to /mypostedjobs
+                    window.location.href = "/mypostedjobs";
+                  });
             }
           })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-        };
+};
+
     
     return (
         <div className="min-h-screen p-6 bg-gray-100  font-EBGaramond">

@@ -80,7 +80,7 @@ const Registrations = () => {
       .catch((error) => {
         console.error("Error:", error);
 
-        Swal.fire("Error", "User registration failed", "error");
+        Swal.fire("Error", "User registration failed cheked you have an Account", "error");
       });
   };
 

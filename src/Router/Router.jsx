@@ -12,6 +12,7 @@ import MyBids from "../Pages/MyBids/MyBids";
 import BidRequest from "../Pages/BidRequest/BidRequest";
 import Details from "../Pages/JobDetails/Details";
 import UpdatePost from "../Compunents/UpdatePost/UpdatePost";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -29,7 +30,7 @@ import UpdatePost from "../Compunents/UpdatePost/UpdatePost";
       
         {
           path:"/addjob",
-          element:<AddJobForm></AddJobForm>
+          element:<PrivateRoute><AddJobForm></AddJobForm></PrivateRoute>
         },
         {
           path:"/updatepost/:id", 
@@ -38,11 +39,11 @@ import UpdatePost from "../Compunents/UpdatePost/UpdatePost";
         },
         {
           path:"/jobs/:_id",
-          element:<Details></Details>
+          element:<PrivateRoute><Details></Details></PrivateRoute>
         },
         {
           path:"/mypostedjobs",
-          element:<MyPostedJobs></MyPostedJobs>
+          element:<PrivateRoute><MyPostedJobs></MyPostedJobs></PrivateRoute>
         },
         {
           path:"/registration",
@@ -50,11 +51,11 @@ import UpdatePost from "../Compunents/UpdatePost/UpdatePost";
         },
         {
           path:"/mybids",
-          element:<MyBids></MyBids>
+          element:<PrivateRoute><MyBids></MyBids></PrivateRoute>
         },
         {
           path:"/bidrequest",
-          element:<BidRequest></BidRequest>
+          element:<PrivateRoute><BidRequest></BidRequest></PrivateRoute>
         },
         {
           path:"/login",
