@@ -11,6 +11,7 @@ import MyPostedJobs from "../Pages/MyPostedJobs/MyPostedJobs";
 import MyBids from "../Pages/MyBids/MyBids";
 import BidRequest from "../Pages/BidRequest/BidRequest";
 import Details from "../Pages/JobDetails/Details";
+import UpdatePost from "../Compunents/UpdatePost/UpdatePost";
 
 
 
@@ -30,11 +31,11 @@ import Details from "../Pages/JobDetails/Details";
           path:"/addjob",
           element:<AddJobForm></AddJobForm>
         },
-        // {
-        //   path:"/jobs/:category",
-        //   element:<TabComponent></TabComponent>
-
-        // },
+        {
+          path:"/updatepost/:id", 
+          element:<UpdatePost></UpdatePost>,
+          loader: ({params}) => fetch(`http://localhost:4100/jobs/${params.id}`)
+        },
         {
           path:"/jobs/:_id",
           element:<Details></Details>
