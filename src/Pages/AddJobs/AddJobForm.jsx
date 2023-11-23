@@ -1,13 +1,12 @@
 // src/components/AddJobForm.js
-import React, { useContext, useEffect, useState } from 'react';
-import Swal from 'sweetalert2';
-import { AuthContext } from '../../AuthProvider/AuthProvider';
-
+import React, { useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const AddJobForm = () => {
   const { user } = useContext(AuthContext);
-  const [userEmail, setUserEmail] = useState('');
-  
+  const [userEmail, setUserEmail] = useState("");
+
   useEffect(() => {
     // Check if user is defined and has an email property
     if (user && user.email) {
@@ -30,12 +29,11 @@ const AddJobForm = () => {
     const maxPrice = form.maxPrice.value;
     setError("");
     setSuccess("");
-  
     if (!user) {
       setError("Make Sure You Are Login ");
       return;
     }
-  
+
     const addedNewJob = {
       user,
       buyerEmail,
@@ -47,7 +45,6 @@ const AddJobForm = () => {
       minPrice,
       maxPrice,
     };
-  
     // Send data to the server
     fetch("http://localhost:4100/jobs", {
       method: "POST",
@@ -61,20 +58,12 @@ const AddJobForm = () => {
         console.log(data);
         if (data.insertedId) {
           Swal.fire({
-            title: 'Thank You!',
-            text: 'Jobs Added Successfully',
-            icon: 'success',
-            confirmButtonText: 'Okay'
-          })
-          .then(() => {
-            // Redirect to /mypostedjobs using React Router if you are using it
-            // If not, you can use window.location.href as before
-            // For example, if using React Router:
-            // import { useHistory } from 'react-router-dom';
-            // const history = useHistory();
-            // history.push('/mypostedjobs');
-  
-            // Replace the line below with the appropriate redirection method
+            title: "Thank You!",
+            text: "Jobs Added Successfully",
+            icon: "success",
+            confirmButtonText: "Okay",
+          }).then(() => {
+            // Redirect to /mypostedjobs
             window.location.href = "/mypostedjobs";
           });
         }
@@ -86,19 +75,26 @@ const AddJobForm = () => {
 
   return (
     <div className="min-h-screen p-6 bg-gray-100  font-EBGaramond">
-      <div className='container max-w-screen-lg mx-auto flex items-center justify-center '>
+      <div className="container max-w-screen-lg mx-auto flex items-center justify-center ">
         <div>
-          <h3 className="text-7xl font-extrabold text-[#198754] mb-8">Find the talents for any job.</h3>
-          <p className="font-semibold text-2xl text-gray">Unlock your potential with quality job & earn from world leading brands & co.</p>
+          <h3 className="text-7xl font-extrabold text-[#198754] mb-8">
+            Find the talents for any job.
+          </h3>
+          <p className="font-semibold text-2xl text-gray">
+            Unlock your potential with quality job & earn from world leading
+            brands & co.
+          </p>
         </div>
         <div>
-        <img src="https://i.ibb.co/N2vGxSy/ils-01-2.png" alt="" />
+          <img src="https://i.ibb.co/N2vGxSy/ils-01-2.png" alt="" />
         </div>
       </div>
 
       <div className="container max-w-screen-lg mx-auto">
         <div className="mt-5">
-          <h2 className="font-semibold text-2xl text-center text-black rounded-lg p-4 bg-[#20c997] ">POST A JOB </h2>
+          <h2 className="font-semibold text-2xl text-center text-black rounded-lg p-4 bg-[#20c997] ">
+            POST A JOB{" "}
+          </h2>
 
           <div className="bg-white rshadow-lg p-4 px-4 md:p-8 mb-6 rounded-md">
             <form onSubmit={handleSubmit}>
@@ -117,19 +113,16 @@ const AddJobForm = () => {
                         name="jobTitle"
                         id="jobTitle"
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        
                       />
                     </div>
                     <div className="md:col-span-2 text-black">
                       <label htmlFor="jobTitle">Email of the Employee</label>
                       <input
-                        type="email"
                         name="buyerEmail"
                         id="buyerEmail"
                         className="h-10 border mt-1 rounded px-4 w-full "
                         readOnly
-                        placeholder={userEmail}
-                        
+                        value={userEmail}
                       />
                     </div>
 
@@ -140,32 +133,32 @@ const AddJobForm = () => {
                         name="deadline"
                         id="deadline"
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        
                       />
                     </div>
 
-                    
                     <div className="md:col-span-1">
                       <label htmlFor="category">Category</label>
                       <select
                         name="category"
                         id="category"
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      
                       >
                         <option value="">Select Category</option>
                         <option value="Web Development">Web Development</option>
-                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="Digital Marketing">
+                          Digital Marketing
+                        </option>
                         <option value="Graphics Design">Graphics Design</option>
                       </select>
                     </div>
                     <div className="md:col-span-2">
-                      <label htmlFor="shortdescription">Short Description</label>
+                      <label htmlFor="shortdescription">
+                        Short Description
+                      </label>
                       <textarea
                         name="shortdescription"
                         id="shortdescription"
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      
                       ></textarea>
                     </div>
 
@@ -175,7 +168,6 @@ const AddJobForm = () => {
                         name="description"
                         id="description"
                         className="h-20 border mt-1 rounded px-4 w-full bg-gray-50"
-                      
                       ></textarea>
                     </div>
 
@@ -186,7 +178,6 @@ const AddJobForm = () => {
                         name="minPrice"
                         id="minPrice"
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        
                       />
                     </div>
 
@@ -197,26 +188,28 @@ const AddJobForm = () => {
                         name="maxPrice"
                         id="maxPrice"
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      
                       />
                     </div>
                   </div>
                 </div>
                 <div className="md:col-span-5 text-right">
-                <div className="flex items-center justify-center gap-4 mt-6">
-                  <div>
-                  {success && <p className="text-blue-400  mb-6">{success}</p>}
-                {error && (
-                  <p className="text-red-400  mb-6">{error}</p>
-                )}
+                  <div className="flex items-center justify-center gap-4 mt-6">
+                    <div>
+                      {success && (
+                        <p className="text-blue-400  mb-6">{success}</p>
+                      )}
+                      {error && <p className="text-red-400  mb-6">{error}</p>}
+                    </div>
+                    <div>
+                      <button
+                        className="bg-[#198754] hover:bg-[#20c997] text-white font-bold py-2 px-4 rounded "
+                        type="submit"
+                      >
+                        Add Job
+                      </button>
+                    </div>
                   </div>
-                 <div>
-                 <button className="bg-[#198754] hover:bg-[#20c997] text-white font-bold py-2 px-4 rounded " type="submit">
-                    Add Job
-                  </button>
-                 </div>
                 </div>
-              </div>
               </div>
             </form>
           </div>

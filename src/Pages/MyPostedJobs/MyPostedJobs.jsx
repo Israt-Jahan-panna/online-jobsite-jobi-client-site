@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import CardTab from '../../Compunents/cardtab/cardTab';
+import React, { useEffect, useState } from "react";
+import PostCard from "./PostCard";
 
 const MyPostedJobs = () => {
-    const [jobs , setJobs] = useState([]);
+  const [jobs, setJobs] = useState([]);
 
-    useEffect(() => {
-      fetch('http://localhost:4100/jobs')
-      .then(res => res.json())
-      .then(data => setJobs(data))
-     
-    });
-    console.log(jobs)
-    return (
-        <div>
-            {
-          jobs.map(jobs=> <CardTab key={jobs.id} jobs={jobs}></CardTab>)
-         }
-        </div>
-    );
+  useEffect(() => {
+    fetch("http://localhost:4100/jobs")
+      .then((res) => res.json())
+      .then((data) => setJobs(data));
+  });
+  console.log(jobs);
+  return (
+    <div className="mx-auto py-5 lg:px-0 max-w-[1600px] ">
+      <div className="">
+      {jobs.map((jobs) => (
+        <PostCard key={jobs.id} jobs={jobs}></PostCard>
+      ))}
+      </div>
+    </div>
+  );
 };
 
 export default MyPostedJobs;
