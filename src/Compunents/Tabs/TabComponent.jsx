@@ -6,9 +6,9 @@ import CardTab from "../cardtab/cardTab";
 
 const TabComponent = () => {
  
+  const [activeTab, setActiveTab] = useState(0);
   const [jobs , setJobs] = useState([]);
 
-  const [activeTab, setActiveTab] = useState(0);
   useEffect(() => {
     fetch('http://localhost:4100/jobs')
     .then(res => res.json())

@@ -21,8 +21,8 @@ const AddJobForm = () => {
     event.preventDefault();
     const form = event.target;
     const jobTitle = form.jobTitle.value;
-    const buyerEmail= form.buyerEmail.value;
-    const  deadline = form. deadline.value;
+    const buyerEmail = form.buyerEmail.value;
+    const deadline = form.deadline.value;
     const description = form.description.value;
     const shortdescription = form.shortdescription.value;
     const category = form.category.value.toUpperCase();
@@ -30,12 +30,13 @@ const AddJobForm = () => {
     const maxPrice = form.maxPrice.value;
     setError("");
     setSuccess("");
+  
     if (!user) {
       setError("Make Sure You Are Login ");
       return;
     }
-    
-    const addedNewJob ={
+  
+    const addedNewJob = {
       user,
       buyerEmail,
       jobTitle,
@@ -46,7 +47,8 @@ const AddJobForm = () => {
       minPrice,
       maxPrice,
     };
-     // Send data to the server
+  
+    // Send data to the server
     fetch("http://localhost:4100/jobs", {
       method: "POST",
       headers: {
@@ -57,18 +59,29 @@ const AddJobForm = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if(data.insertedId){
-            Swal.fire({
-                title: 'Thank You!',
-                text: 'Jobs Added Successfully',
-                icon: 'success',
-                confirmButtonText: 'Okay'
-              })
+        if (data.insertedId) {
+          Swal.fire({
+            title: 'Thank You!',
+            text: 'Jobs Added Successfully',
+            icon: 'success',
+            confirmButtonText: 'Okay'
+          })
+          .then(() => {
+            // Redirect to /mypostedjobs using React Router if you are using it
+            // If not, you can use window.location.href as before
+            // For example, if using React Router:
+            // import { useHistory } from 'react-router-dom';
+            // const history = useHistory();
+            // history.push('/mypostedjobs');
+  
+            // Replace the line below with the appropriate redirection method
+            window.location.href = "/mypostedjobs";
+          });
         }
       })
       .catch((error) => {
         console.error("Error:", error);
-      })
+      });
   };
 
   return (
