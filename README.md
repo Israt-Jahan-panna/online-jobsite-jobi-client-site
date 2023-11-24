@@ -1,8 +1,30 @@
-# React + Vite
+## Jobi online market place:
+## [ Jobi online market place Live link ](https://jobi-clientsite.web.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## In this project we can psot for a job or hierd for company  . 
+Here Is 5 Feature  and functionalitis of this project:
+1. we can add a job post in add post page and also update that post  . 
+2. we can see the job post by catagory  .
 
-Currently, two official plugins are available:
+3. We can bit any project with my requirments requirements  .
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+4. In this website we have to login authentication and also for access  private routre.
+
+5. In this website have we can  see my post and also my bid request also have some feature to find job by cv  .
+
+## [ Netlify clint site link]( https://jobi-onlinemarket-isratjahanpanna.netlify.app/)
+
+
+## [ github seversite ](https://github.com/Porgramming-Hero-web-course/b8a11-server-side-Israt-Jahan-panna)
+## [ github clintsite link ]( https://github.com/Porgramming-Hero-web-course/b8a11-client-side-Israt-Jahan-panna)
+
+
+
+
+60 marks: 4th November 2023 - 8th November, 2023 11:59pm
+
+50 marks: 9th November 2023, 11:59 pm
+
+## [ Client Side Private repo:](https://classroom.github.com/a/dn3l6UtS)(https://classroom.github.com/a/dn3l6UtS)
+
+## [ Server Side Private repo:](https://classroom.github.com/a/IduXNLmU)(https://classroom.github.com/a/IduXNLmU)

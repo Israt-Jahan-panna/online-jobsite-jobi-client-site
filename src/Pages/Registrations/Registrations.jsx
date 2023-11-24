@@ -49,7 +49,7 @@ const Registrations = () => {
 
         const userData = { email, name };
 
-        fetch("http://localhost:4100/users", {
+        fetch("  https://jobi-server-site.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -7,7 +7,7 @@ const MyBids = () => {
     const [myBids , setMyBids] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4100/mybids')
+    fetch('  https://jobi-server-site.vercel.app/mybids')
     .then(res => res.json())
     .then(data => setMyBids(data))
    

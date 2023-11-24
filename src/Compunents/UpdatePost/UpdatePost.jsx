@@ -58,7 +58,7 @@ const UpdatePost = () => {
   setSuccess("");
 
   // Send data to the server
-  fetch(`http://localhost:4100/jobs/${_id}`, {
+  fetch(`  https://jobi-server-site.vercel.app/jobs/${_id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

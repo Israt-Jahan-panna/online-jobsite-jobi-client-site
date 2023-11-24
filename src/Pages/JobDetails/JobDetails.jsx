@@ -93,7 +93,7 @@ const JobDetails = ({ jobs }) => {
 
       // Send data to bidsrequest endpoint
       const bidsRequestResponse = await fetch(
-        "http://localhost:4100/bidsrequest",
+        "  https://jobi-server-site.vercel.app/bidsrequest",
         {
           method: "POST",
           headers: {
@@ -108,7 +108,7 @@ const JobDetails = ({ jobs }) => {
       }
 
       // Send data to mybids endpoint
-      const myBidsResponse = await fetch("http://localhost:4100/mybids", {
+      const myBidsResponse = await fetch("  https://jobi-server-site.vercel.app/mybids", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

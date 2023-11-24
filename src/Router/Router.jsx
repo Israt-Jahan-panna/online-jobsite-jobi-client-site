@@ -35,7 +35,7 @@ import PrivateRoute from "./PrivateRoute";
         {
           path:"/updatepost/:id", 
           element:<UpdatePost></UpdatePost>,
-          loader: ({params}) => fetch(`http://localhost:4100/jobs/${params.id}`)
+          loader: ({params}) => fetch(`  https://jobi-server-site.vercel.app/jobs/${params.id}`)
         },
         {
           path:"/jobs/:_id",

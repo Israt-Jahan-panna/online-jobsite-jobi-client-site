@@ -21,8 +21,7 @@ const MyBidsCard = ({ jobs }) => {
   const [bidStatus, setBidStatus] = useState("pending");
 
   const handleCompleteClick = () => {
-    // Call API to update bid status to 'complete'
-    // For example: updateBidStatus(jobs._id, 'complete');
+   
     setBidStatus("complete");
   };
 
@@ -67,18 +66,10 @@ const MyBidsCard = ({ jobs }) => {
             </div>
   
              {/* Bid Now Button */}
-            {/* Complete Button */}
-            {bidStatus === "in-progress" && (
-              <div className="flex gap-4 items-center">
-                <i className="fa-regular fa-bookmark" style={{ color: "#244034" }}></i>
-                <button
-                  onClick={handleCompleteClick}
-                  className="bg-[#198754] hover:bg-[#00bf58] text-white px-8 py-2 rounded-xl text-sm"
-                >
-                  Complete
-                </button>
-              </div>
-            )}
+            <button className="bg-[#198754] hover:bg-[#20c997] text-white font-bold py-2 px-4 rounded ">
+              Complete
+            </button>
+            
           </div>
         </div> )
       }

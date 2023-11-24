@@ -46,7 +46,7 @@ const AddJobForm = () => {
       maxPrice,
     };
     // Send data to the server
-    fetch("http://localhost:4100/jobs", {
+    fetch("https://jobi-server-site.vercel.app/jobs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
