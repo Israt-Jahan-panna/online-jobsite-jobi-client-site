@@ -13,13 +13,3 @@ Here Is 5 Feature  and functionalitis of this project:
 5. In this website have we can  see my post and also my bid request also have some feature to find job by cv  .
 
 
-
-
-
-60 marks: 4th November 2023 - 8th November, 2023 11:59pm
-
-50 marks: 9th November 2023, 11:59 pm
-
-## [ Client Side Private repo:](https://classroom.github.com/a/dn3l6UtS)(https://classroom.github.com/a/dn3l6UtS)
-
-## [ Server Side Private repo:](https://classroom.github.com/a/IduXNLmU)(https://classroom.github.com/a/IduXNLmU)
