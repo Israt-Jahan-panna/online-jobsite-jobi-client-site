@@ -12,11 +12,6 @@ Here Is 5 Feature  and functionalitis of this project:
 
 5. In this website have we can  see my post and also my bid request also have some feature to find job by cv  .
 
-## [ Netlify clint site link]( https://jobi-onlinemarket-isratjahanpanna.netlify.app/)
-
-
-## [ github seversite ](https://github.com/Porgramming-Hero-web-course/b8a11-server-side-Israt-Jahan-panna)
-## [ github clintsite link ]( https://github.com/Porgramming-Hero-web-course/b8a11-client-side-Israt-Jahan-panna)
 
 
 
